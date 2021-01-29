@@ -1,0 +1,338 @@
+\documentclass[12pt]{article}
+\usepackage[top=1in,bottom=1in,left=1in,right=1in]{geometry}
+\usepackage{alltt}
+\usepackage{array}	
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{verbatim}
+\usepackage{setspace}
+\usepackage{listings}
+\usepackage{amssymb,amsmath, amsthm}
+\usepackage{qtree}
+\usepackage{hyperref}
+\usepackage{oz}
+\usepackage[cc]{titlepic}
+\usepackage{fancyvrb}
+\usepackage{epstopdf}
+\usepackage{soul}
+\usepackage{array}
+\newcolumntype{L}{>{\centering\arraybackslash}m{3cm}}
+
+\title{Concordia University\\
+Department of Computer Science and Software Engineering\\
+\textbf{SOEN 331 - S and U\\Introduction to Formal Methods\\for Software Engineering}\\
+\ \\
+\textbf{Assignment 1}\\
+Propositional and Predicate Logic, Structures,\\Binary Relations, Functions and Relational Calculus}
+\author{\textbf{Dr. Constantinos Constantinides, P.Eng.}\\
+		\texttt{constantinos.constantinides@concordia.ca}
+\ \\}
+\date{\today}
+
+\begin{spacing}{1.5}
+\begin{document}
+\maketitle
+
+\newpage
+\tableofcontents
+\newpage
+
+\section{General information}
+
+\noindent \textbf{Date posted}: Thursday 28 January, 2021.\\
+\noindent \textbf{Date due}: Thursday, February 11, 2021, by 23:59.\\
+\noindent \textbf{Weight}: 25\% of the overall grade.
+
+\section{Introduction}
+
+This is a team assignment. Each team should designate a leader who will submit the assignment electronically. There are \textbf{9} problems in this assignment, with a total of \textbf{100} points. You must prepare all your solutions in~\LaTeX~and produce a single \texttt{pdf} file. Please make sure you include all names and id's of all contributing team members as the authors.  Name the file after your team, e.g. \texttt{team1.pdf}.\\
+
+\section{Ground rules}
+
+This is an assessment exercise.  You may not seek any assistance while expecting to receive credit. \textbf{You must work strictly within your team and seek no assistance for this project (from the instructor, the teaching assistants, fellow classmates and other teams or external help)}. Please note that you should \textbf{not} discuss the assignment during tutorials. Failure to do so will result in penalties or no credit.\\
+
+\noindent \textbf{All team members are expected to work relatively equally on each problem}. The team leader has the responsibility to ensure that the team does not violate this rule. Failure to do so will result in penalties. In your submission, you must include only the names of those people who contributed to the assignment. Accommodating someone who did not contribute will result in penalties.\\
+
+\noindent If there is any problem in the team (such as lack of contribution, etc.), the team leader must contact the instructor as soon as the problem appears.
+
+\newpage
+
+\section{Problems}
+
+\subsection{Problem 1 (8 pts)}
+
+\noindent You are shown a set of four cards placed on a table, each of which has a \textbf{number} on one side and a \textbf{symbol} on the other side. The visible faces of the cards show the numbers \textbf{2} and \textbf{7}, and the symbols \textbf{$\Box$}, and \textbf{$\bigcirc$}.\\
+
+\noindent Which card(s) must you turn over in order to test the truth of the proposition that \textit{``If a card has an odd number on one side, then it has the symbol $\Box$ on the other side''}? Explain your reasoning by deciding for \underline{each} card whether it should be turned over and why.\\
+
+\newpage
+
+\subsection{Problem 2 (8 pts)}
+
+Consider the predicate \textit{asks(a, b)} that is interpreted as \textit{``a has asked b out on a date.''}
+\begin{enumerate}
+\item Translate the following into English: $\forall a \exists b~asks(a, b)$ and $\exists y \forall x ~asks(a, b)$.
+\item Can we claim that $\forall a \exists b~asks(a, b) \rightarrow \exists y \forall x ~asks(a, b)$? Discuss in detail.
+\item Can we claim that $\exists y \forall x ~asks(a, b) \rightarrow \forall a \exists b~asks(a, b)$? Discuss in detail.
+\end{enumerate}
+
+
+\newpage
+
+\subsection{Problem 3 (12 pts)}
+
+\noindent Let $scientist(x)$ denote the statement ``x is a scientist'', and $honest(x)$ denote the statement ``x is honest.'' Formalize the following sentences and indicate their corresponding formal type.
+
+\begin{enumerate}
+\item ``No scientists are honest.''
+
+\item ``All scientists are crooked.''
+
+\item ``All scientists are honest.''
+
+\item ``Some scientists are crooked.''
+
+\item ``Some scientists are honest.''
+
+\item ``No scientist is crooked.''
+
+\item ``Some scientists are not crooked.''
+
+\item ``Some scientists are not honest.''
+
+\end{enumerate}
+
+\noindent Identify pairs that are contradictories, contraries, subcontraries, and pairs that support subalteration (clearly indicating superaltern and subaltern).\\
+
+\newpage
+
+\subsection{Problem 4 (12 pts)}
+
+Consider list $\Lambda = \langle w, x, y, z \rangle$, deployed to implement a Queue Abstract Data Type.
+
+\begin{enumerate}
+
+\item Let the head of $\Lambda$ correspond to the front position of the Queue. Implement operations \texttt{enqueue(el, $\Lambda$)} and \texttt{dequeue($\Lambda$)} using list construction operations. In both cases we can refer to $\Lambda'$ as the state of the list upon successful termination of one of its operations.
+
+\item Let us now reverse the way we manipulate our data structure and let the head of $\Lambda$ correspond to the rear of the Queue.
+\begin{enumerate}
+\item What would be the result of $cons(el, \Lambda)$, and would it be a correct implementation for operation \texttt{enqueue(el, $\Lambda$)}?
+\item What would be the result of $list(el, \Lambda)$, and would it be a correct implementation for operation \texttt{enqueue(el, $\Lambda$)}?
+\item What would be the result of $concat(list(el), \Lambda)$, and would it be a correct implementation for operation \texttt{enqueue(el, $\Lambda$)}?
+\end{enumerate}
+\end{enumerate}
+
+\newpage
+
+\subsection{Problem 5 (12 pts)}
+
+\noindent Let $A = \{ 0, 1, 2, 3, 4 \}$ and relations $R$, $S$, $T$, and $U$ on $A$ defined as follows:
+
+\[ R = \{ (0, 0),  (0, 1),  (0, 3),  (1, 0),  (1, 1),  (2, 2),  (3, 0),  (3, 1), (3, 3), (4, 0), (4, 1), (4, 3), (4, 4)  \}\]
+
+\[ S = \{ (0, 1),  (1, 1),  (2, 3),  (2, 4), (3, 0), (3, 4), (4, 0), (4, 1), (4, 4)  \}\]
+
+\[ T = \{ (0, 3), (0, 4),  (2, 1), (3, 2), (4, 2), (4, 3) \}\]
+
+\[ U = \{ (0, 0),  (0, 1), (0, 3), (1, 0), (1, 1), (1, 3), (2, 2), (3, 0), (3, 1), (3, 3), (4, 4) \}\]
+
+\noindent Fill in the table below, using $\checkmark$, or $\times$.
+
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline
+						&	&	$R$	&	$S$	&	$T$	& $U$\\
+\hline
+\textbf{Reflexive} 	&   &		&		&	&	 \\
+\hline
+\textbf{Irreflexive} 	&   &		&		&	&	 \\
+\hline
+\textbf{Symmetric} 	&   &		&		&	&	 \\
+\hline
+\textbf{Asymmetric} 	&   &		&		&	&	 \\
+\hline
+\textbf{Antisymmetric} &   &		&		&	&	 \\
+\hline
+\textbf{Transitive} 	&   &		&		&	&	 \\
+\hline
+\textbf{Equivalence} 	&   &		&		&	&	 \\
+\hline
+\textbf{Partial order} 	&   &		&		&	&	 \\
+\hline
+\end{tabular}
+\end{center}
+
+\newpage
+
+\subsection{Problem 6 (8 pts)}
+
+\noindent Consider the relation \textit{``is a subtype of''} over the set $\{ rectangle, quadrilateral, square, parellelogram,\\rhombus\}$.
+
+\begin{enumerate}
+
+\item Is this an \textit{equivalence relation}?
+
+\item Is this relation a \textit{partial order}? If so, create a \textit{Hasse diagram}, and identify \textit{minimal} and \textit{maximal} elements.
+
+\end{enumerate}
+
+\newpage
+
+\subsection{Problem 7 (8 pts)}
+
+Consider the set $A = \{ w, x, y, z \}$, and the relations
+
+\begin{description}
+
+\item $S = \{ (w, x), (w, y), (x, w), (x, x), (z, x) \}$
+
+\item $T = \{ (w, w), (w, y), (x, w), (x, x),  (x, z), (y, w), (y, y), (y, z) \}$
+\end{description}
+
+\noindent Find the following compositions:
+
+\begin{enumerate}
+\item $S \circ T$
+
+\item $T \circ S$
+
+\item $T^{-1} \circ S^{-1}$
+\end{enumerate}
+
+\noindent \textbf{NOTE}: Some authors (e.g. Rosen) adopt a different ordering of operands than the one we use in our lecture notes. Please follow the ordering (and the definition) of the lecture notes.\\
+
+\newpage
+
+
+\subsection{Problem 8 (12 pts)}
+
+Consider sets $A = \{1, 2, 3, 4, 5, 6 \}$ and $B = \{ a, b, c, d, e, f \}$.
+
+\begin{enumerate}
+
+\item Determine the type of the correspondence in each of the following cases, or indicate if the correspondence is not a function.
+
+\begin{enumerate}
+\item $\{ 1 \mapsto b, 2 \mapsto c, 3 \mapsto e, 4 \mapsto d, 5 \mapsto f, 3 \mapsto a \}$
+
+\item $\{ 1 \mapsto a, 2 \mapsto d, 3 \mapsto a, 4 \mapsto f, 5 \mapsto d, 6 \mapsto c \}$
+
+\item $\{ 1 \mapsto c, 2 \mapsto b, 3 \mapsto d, 4 \mapsto e, 5 \mapsto e, 6 \mapsto f  \}$
+
+\item $\{ 1 \mapsto b, 2 \mapsto c, 3 \mapsto e, 4 \mapsto d, 5 \mapsto f, 6 \mapsto a \}$
+\end{enumerate}
+
+\noindent Fill in the table below, using $\checkmark$, or $\times$.
+
+\begin{center}
+\begin{tabular}{|l|c|c|c|c|c|}
+\hline
+		& Injective		& Surjective	& Bijective 	& \multicolumn{1}{m{3cm}|}{Neither injective nor surjective}	&	Not a function	\\
+\hline
+(a)		& 		& 		& 	& 			&  \\
+\hline
+
+(b)		& 		& 		& 		& 	&	 \\
+\hline
+
+
+(c)		& 		& 		& 		& 	&  \\
+\hline
+
+(d)		& 		& 		& 		&	&  \\
+\hline
+\end{tabular}
+\end{center}
+
+
+\item Is it possible to construct a function $f : A \rightarrow B$ which is surjective and not injective?  Discuss.
+\end{enumerate}
+
+\newpage
+
+\subsection{Problem 9 (20 pts)}
+
+\noindent Consider the following relation:
+
+\[ laptops : Model \leftrightarrow Brand \]
+
+\noindent where
+
+\[
+laptops = \\
+\hspace{5mm} \{ \\
+\hspace{10mm} legion5 \mapsto lenovo,\\
+\hspace{10mm} macbookair \mapsto apple,\\
+\hspace{10mm} xps15 \mapsto dell,\\
+\hspace{10mm} spectre \mapsto hp,\\
+\hspace{10mm} xps13 \mapsto dell,\\
+\hspace{10mm} swift3 \mapsto acer,\\
+\hspace{10mm} macbookpro \mapsto apple,\\
+\hspace{10mm} dragonfly \mapsto hp,\\
+\hspace{10mm} envyx360 \mapsto hp\\
+\hspace{5mm} \}
+\]
+
+\begin{enumerate}
+
+\item What is the domain and the range of the relation?\\
+
+\item What is the result of the expression
+
+\[ \{ xps15, xps13, swift3, envyx360 \}  \lhd laptops \]
+
+\noindent What is the meaning of operator $\lhd$ and where would you deploy such operator in the context of a database management system?
+
+\item What is the result of the expression
+
+\[ laptops \rhd \{ lenovo, hp \} \]
+
+\noindent What is the meaning of operator $\rhd$ and where would you deploy such operator in the context of a database management system?
+
+\item What is the result of the expression
+
+\[ \{ legion5, xps15, xps13, dragonfly \} \ndres laptops \]
+
+\noindent What is the meaning of operator $\ndres$ and where would you deploy such operator in the context of a database management system?
+
+\item What is the result of the expression
+
+\[ laptops \nrres \{ apple, dell, hp \} \]
+
+\noindent What is the meaning of operator $\nrres$ and where would you deploy such operator in the context of a database management system?
+
+\item Consider the following expression
+
+\[ laptop \oplus \{ ideapad \mapsto lenovo \} \]
+
+\begin{enumerate}
+\item What is the result of the expression?
+
+\item What is the meaning of operator $\oplus$ and where would you deploy such operator in the context of a database management system?
+
+\item Does the result of the expression have a permanent effect on the database (relation)? If not, describe in detail how would you ensure a permanent effect. 
+
+\end{enumerate}
+
+\end{enumerate}
+
+
+\newpage
+
+\section{What to submit}
+
+\noindent Please submit your \texttt{pdf} file at the Electronic Assignment Submission portal
+
+\centerline{(\url{https://fis.encs.concordia.ca/eas}) }
+
+\noindent under \textbf{Theory Assignment 1}.
+
+\end{spacing}
+
+\center
+\textbf{END OF ASSIGNMENT}.
+\par\noindent\rule{\textwidth}{0.4pt}
+
+
+
+\end{document}
