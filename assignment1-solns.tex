@@ -109,14 +109,14 @@ Consider the predicate \textit{asks(a, b)} that is interpreted as \textit{``a ha
 \noindent The formalization is as follows:
 
 \begin{enumerate}
-\item $\forall x \neg ~honest(x) (Type E)$
-\item $\forall x \neg ~honest(x) (Type E)$
-\item $\forall x ~honest(x) (Type A)$
-\item $\exists x \neg ~honest(x) (Type O)$
-\item $\exists x ~honest(x) (Type I)$
-\item $\forall x ~honest(x) (Type A)$
-\item $\exists x ~honest(x) (Type I)$
-\item $\exists x \neg ~honest(x) (Type O)$
+\item $\forall x (~scientist(x) \textrightarrow \neg ~honest(x)) (Type E)$
+\item $\forall x (~scientist(x) \textrightarrow \neg ~honest(x)) (Type E)$
+\item $\forall x (~scientist(x) \textrightarrow ~honest(x)) (Type A)$
+\item $\exists x (~scientist(x) \wedge \neg ~honest(x)) (Type O)$
+\item $\exists x (~scientist(x) \wedge ~honest(x)) (Type I)$
+\item $\forall x (~scientist(x) \textrightarrow ~honest(x)) (Type A)$
+\item $\exists x (~scientist(x) \wedge ~honest(x)) (Type I)$
+\item $\exists x (~scientist(x) \wedge \neg ~honest(x)) (Type O)$
 \end{enumerate}
 
 \newpage
