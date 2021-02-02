@@ -314,32 +314,69 @@ laptops = \\
 
 \begin{enumerate}
 
-\item What is the domain and the range of the relation?
-\bigskip
+\item What is the domain and the range of the relation?\\
+dom $laptops = \{legion5, macbookair, xps15, spectre, xps13, swift3, macbookpro,\\
+\hspace*{38mm}dragonfly, envyx360\}$\\\\
+ran $laptops = \{ lenovo, apple, dell, hp, acer\}$
 
 \item What is the result of the expression
 
 \[ \{ xps15, xps13, swift3, envyx360 \}  \lhd laptops \]
+\[ \{ xps15, xps13, swift3, envyx360 \}  \lhd laptops =\\
+\hspace{5mm} \{ \\
+\hspace{10mm} xps15 \mapsto dell,\\
+\hspace{10mm} xps13 \mapsto dell,\\
+\hspace{10mm} swift3 \mapsto acer,\\
+\hspace{10mm} envyx360 \mapsto hp\\
+\hspace{5mm} \}
+\]
 
-\noindent What is the meaning of operator $\lhd$ and where would you deploy such operator in the context of a database management system?
+\noindent What is the meaning of operator $\lhd$ and where would you deploy such operator in the context of a database management system?\\\\
+The $\lhd$ operator restricts the domain of the relation and returns the pairs from the relation where the first element matches one of the elements in the domain restrictor. In the context of a database management system, this domain restriction operator could be used to query the database to determine which \textit{Brands} correspond to certain \textit{Models}, given a specific set of \textit{Models}.
 
 \item What is the result of the expression
 
 \[ laptops \rhd \{ lenovo, hp \} \]
+\[ laptops \rhd \{ lenovo, hp \} =\\
+\hspace{5mm} \{ \\
+\hspace{10mm} legion5 \mapsto lenovo,\\
+\hspace{10mm} spectre \mapsto hp,\\
+\hspace{10mm} dragonfly \mapsto hp,\\
+\hspace{10mm} envyx360 \mapsto hp\\
+\hspace{5mm} \}
+\]
 
-\noindent What is the meaning of operator $\rhd$ and where would you deploy such operator in the context of a database management system?
+\noindent What is the meaning of operator $\rhd$ and where would you deploy such operator in the context of a database management system?\\\\
+The $\rhd$ operator restricts the range of the relation and returns the pairs from the relation where the second element (\textit{Brand}) matches one of the elements in the range restrictor. In the context of a database management system, this range restriction operator could be used to query the database to determine which \textit{Models} correspond to certain \textit{Brands}, given a specific set of \textit{Brands}.
 
 \item What is the result of the expression
 
 \[ \{ legion5, xps15, xps13, dragonfly \} \ndres laptops \]
+\[ \{ legion5, xps15, xps13, dragonfly \} \ndres laptops =\\
+\hspace{5mm} \{ \\
+\hspace{10mm} macbookair \mapsto apple,\\
+\hspace{10mm} spectre \mapsto hp,\\
+\hspace{10mm} swift3 \mapsto acer,\\
+\hspace{10mm} macbookpro \mapsto apple,\\
+\hspace{10mm} envyx360 \mapsto hp\\
+\hspace{5mm} \}
+\]
 
-\noindent What is the meaning of operator $\ndres$ and where would you deploy such operator in the context of a database management system?
+\noindent What is the meaning of operator $\ndres$ and where would you deploy such operator in the context of a database management system?\\\\
+The $\ndres$ operator performs a domain subtration and removes all pairs from the domain of the relation based on their first elements. In the context of a database management system, this operator could be used to remove pairs from the database based on the name of the first element. Here, we removed \textit{laptops} from the domain of the relation whose \textit{Model} matched the ones with the operator.
 
 \item What is the result of the expression
 
 \[ laptops \nrres \{ apple, dell, hp \} \]
+\[ laptops \nrres \{ apple, dell, hp \} =\\
+\hspace{5mm} \{ \\
+\hspace{10mm} legion5 \mapsto lenovo,\\
+\hspace{10mm} swift3 \mapsto acer,\\
+\hspace{5mm} \}
+\]
 
-\noindent What is the meaning of operator $\nrres$ and where would you deploy such operator in the context of a database management system?
+\noindent What is the meaning of operator $\nrres$ and where would you deploy such operator in the context of a database management system?\\\\
+The $\nrres$ operator performs a range subtration and removes all pairs from the codomain of the relation based on their second elements. In the context of a database management system, this operator could be used to remove pairs from the database based on the name of the second element. Here, we removed \textit{laptops} from the codomain of the relation whose \textit{Brand} matched the ones with the operator.
 
 \item Consider the following expression
 
@@ -348,9 +385,28 @@ laptops = \\
 \begin{enumerate}
 \item What is the result of the expression?
 
-\item What is the meaning of operator $\oplus$ and where would you deploy such operator in the context of a database management system?
+\[ laptop \oplus \{ ideapad \mapsto lenovo \} =\\
+\hspace{5mm} \{ \\
+\hspace{10mm} legion5 \mapsto lenovo,\\
+\hspace{10mm} macbookair \mapsto apple,\\
+\hspace{10mm} xps15 \mapsto dell,\\
+\hspace{10mm} spectre \mapsto hp,\\
+\hspace{10mm} xps13 \mapsto dell,\\
+\hspace{10mm} swift3 \mapsto acer,\\
+\hspace{10mm} macbookpro \mapsto apple,\\
+\hspace{10mm} dragonfly \mapsto hp,\\
+\hspace{10mm} envyx360 \mapsto hp\\
+\hspace{10mm} ideapad \mapsto lenovo\\
+\hspace{5mm} \}
+\]
+The relation will have $ideapad \mapsto lenovo$ appended to it.\\
 
-\item Does the result of the expression have a permanent effect on the database (relation)? If not, describe in detail how would you ensure a permanent effect. 
+\item What is the meaning of operator $\oplus$ and where would you deploy such operator in the context of a database management system?\\\\
+The $\oplus$ operator performs a relational override that adds all elements from the RHS of the operator to the relation, if they do not already exist in the relation. In the context of a database management system, this could be used to update the database and add new elements.\\
+
+\item Does the result of the expression have a permanent effect on the database (relation)? If not, describe in detail how would you ensure a permanent effect.\\\\
+This result would not have a permanent effect on the relation, it will only return what the relation would look like with the elements added to it. For a permanent effect, you would need to do
+\[ laptop' = laptop \oplus \{ ideapad \mapsto lenovo \} \]
 
 \end{enumerate}
 
