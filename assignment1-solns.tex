@@ -111,6 +111,25 @@ Consider the predicate \textit{asks(a, b)} that is interpreted as \textit{``a ha
 \item Can we claim that $\exists y \forall x ~asks(a, b) \rightarrow \forall a \exists b~asks(a, b)$? Discuss in detail.
 \end{enumerate}
 
+\bigskip
+\noindent \textbf{Solution:}
+\begin{enumerate}
+\item \begin{enumerate}
+\item $\forall a \exists b~asks(a, b)$ = Everyone has asked at least one person out on a date.
+\item $\exists a \forall b ~asks(a, b)$ = There exists a person whom has been asked on a date by everyone.
+\end{enumerate}
+\item Can we claim that $\forall a \exists b~asks(a, b) \rightarrow \exists b \forall a ~asks(a, b)$? Discuss in detail.
+
+No, modus ponens and modus tollens both fail. There could exist a person whom has not asked the same person out on a date as everyone else. Therefore the LHS
+would be true and the RHS false which cannot hold for implication.
+
+\item Can we claim that $\exists b \forall a ~asks(a, b) \rightarrow \forall a \exists b~asks(a, b)$? Discuss in detail.
+
+Yes, if a person has been asked on a date by every person then this implies that every person has asked out at least one person on a date.
+\end{enumerate}
+
+
+
 
 \newpage
 
@@ -439,15 +458,6 @@ This result would not have a permanent effect on the relation, it will only retu
 \end{enumerate}
 
 
-\newpage
-
-\section{What to submit}
-
-\noindent Please submit your \texttt{pdf} file at the Electronic Assignment Submission portal
-
-\centerline{(\url{https://fis.encs.concordia.ca/eas}) }
-
-\noindent under \textbf{Theory Assignment 1}.
 
 \end{spacing}
 
