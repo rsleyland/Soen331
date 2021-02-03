@@ -16,6 +16,7 @@
 \usepackage{epstopdf}
 \usepackage{soul}
 \usepackage{array}
+\usepackage{tikz}
 \newcolumntype{L}{>{\centering\arraybackslash}m{3cm}}
 
 \title{Concordia University\\
@@ -271,6 +272,26 @@ Consider list $\Lambda = \langle w, x, y, z \rangle$, deployed to implement a Qu
 \item Is this relation a \textit{partial order}? If so, create a \textit{Hasse diagram}, and identify \textit{minimal} and \textit{maximal} elements.
 
 \end{enumerate}
+
+\bigskip
+\noindent \textbf{Solution:}
+
+\begin{enumerate}
+
+\item No not an equivalence relation. An equivalence relation must be reflexive, symmetric and transitive. The relation is not symmetric, for example a square is a subtype of a quadrilateral
+but a quadrilateral is not a subtype of a square as a square is defined to have four right angled corners.
+
+\item Yes
+\end{enumerate}
+\begin{tikzpicture}[scale=.7]
+\indent	\node (one) at (0,4) {$quadrilateral$};
+\node (two) at (0,2) {$parallelogram$};
+\node (three) at (-2,0) {$rhombus$};
+\node (four) at (2,0) {$rectangle$};
+\node (five) at (0,-2) {$square$};
+\draw (one) -- (two) -- (three) -- (five) -- (four) -- (two);
+\end{tikzpicture}
+
 
 \newpage
 
