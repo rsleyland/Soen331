@@ -202,6 +202,21 @@ Consider list $\Lambda = \langle w, x, y, z \rangle$, deployed to implement a Qu
 \end{enumerate}
 \end{enumerate}
 
+\bigskip
+\noindent \textbf{Solution:}
+\begin{enumerate}
+\item \begin{enumerate}
+\item \texttt{enqueue(el, $\Lambda$)} : $\Lambda'$ = (append $\Lambda$ (list el)) 
+\item \texttt{dequeue($\Lambda$)} : let temp = (car $\Lambda$); $\Lambda'$ = (cdr $\Lambda$); return temp;
+\end{enumerate}
+\item \begin{enumerate}
+\item $\Lambda' = \langle el, w, x, y, z \rangle$ , Yes correct as new element added to tail of queue
+\item $\Lambda' = \langle el, \langle w, x, y, z \rangle \rangle$ , No 'list' function takes elements as parameters, so now there are only two direct elements inside $\Lambda'$
+\item $\Lambda' = \langle el, w, x, y, z \rangle$ , Yes correct order, new element added to tail of queue
+\end{enumerate}
+\end{enumerate}
+
+
 \newpage
 
 \subsection{Problem 5 (12 pts)}
