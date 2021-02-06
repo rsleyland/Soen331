@@ -16,6 +16,7 @@
 \usepackage{epstopdf}
 \usepackage{soul}
 \usepackage{array}
+\usepackage{tikz}
 \newcolumntype{L}{>{\centering\arraybackslash}m{3cm}}
 
 \title{Concordia University\\
@@ -38,7 +39,7 @@ Propositional and Predicate Logic, Structures,\\Binary Relations, Functions and 
 	\textbf{Meng Susana Ung}\\
 	\texttt{40099729}
 }
-\date{Due Date: February 5, 2021}
+\date{Due Date: February 11, 2021}
 
 \begin{spacing}{1.5}
 \begin{document}
@@ -78,6 +79,7 @@ This is an assessment exercise.  You may not seek any assistance while expecting
 \noindent Which card(s) must you turn over in order to test the truth of the proposition that \textit{``If a card has an odd number on one side, then it has the symbol $\Box$ on the other side''}? Explain your reasoning by deciding for \underline{each} card whether it should be turned over and why.
 
 \bigskip
+<<<<<<< HEAD
 \noindent\textbf{Solution:}
 
 $p \rightarrow q$ statements are disproven by finding $p \rightarrow !q$. Therefore, we should turn over cards who's visible face is $p$, which in this case is \textbf{7}.
@@ -85,6 +87,29 @@ $p \rightarrow q$ statements are disproven by finding $p \rightarrow !q$. Theref
 The two cards with \textbf{2} facing up are not cards with \textbf{7}; therefore we should forgo turning those over. If we find a card with \textbf{7} facing up, and find a $\Box$ on the other side upon flipping it, while it bodes well for the proposition, it does not prove it to be true. We must find that the other card with \textbf{7} facing up must \textbf{not} have a $\bigcirc$ on it.
 
 Therefore, to prove the claim, one ought to flip both cards with \textbf{7} facing up, with the intent to find a counterexample. 
+=======
+\noindent \textbf{Solution:}
+
+\noindent Cards to turn over: 7 and \textbf{$\bigcirc$}
+
+\noindent Let p denote odd number on this side of card and q denote \textbf{$\Box$} on opposite side of card then:
+
+7: check this card due to modus ponens
+
+\indent \indent $p \rightarrow q, p \therefore q$
+
+\textbf{$\bigcirc$}: check this card due to modus tollens
+
+\indent \indent $p \rightarrow q, \neg q \therefore \neg p$
+
+2: do not check this card due to inverse errror
+
+\indent \indent $p \rightarrow q, \neg p \therefore \neg q$ is incorrect
+
+\textbf{$\Box$}: do not check this card due to converse errror
+
+\indent \indent $p \rightarrow q, q \therefore p$ is also incorrect
+>>>>>>> 5816794fc252c0836acd9a07e2b50d1355e28336
 
 \newpage
 
@@ -92,10 +117,29 @@ Therefore, to prove the claim, one ought to flip both cards with \textbf{7} faci
 
 Consider the predicate \textit{asks(a, b)} that is interpreted as \textit{``a has asked b out on a date.''}
 \begin{enumerate}
-\item Translate the following into English: $\forall a \exists b~asks(a, b)$ and $\exists y \forall x ~asks(a, b)$.
-\item Can we claim that $\forall a \exists b~asks(a, b) \rightarrow \exists y \forall x ~asks(a, b)$? Discuss in detail.
-\item Can we claim that $\exists y \forall x ~asks(a, b) \rightarrow \forall a \exists b~asks(a, b)$? Discuss in detail.
+\item Translate the following into English: $\forall a \exists b~asks(a, b)$ and $\exists b \forall a ~asks(a, b)$.
+\item Can we claim that $\forall a \exists b~asks(a, b) \rightarrow \exists b \forall a ~asks(a, b)$? Discuss in detail.
+\item Can we claim that $\exists b \forall a ~asks(a, b) \rightarrow \forall a \exists b~asks(a, b)$? Discuss in detail.
 \end{enumerate}
+
+\bigskip
+\noindent \textbf{Solution:}
+\begin{enumerate}
+\item \begin{enumerate}
+\item $\forall a \exists b~asks(a, b)$ = Everyone has asked at least one person out on a date.
+\item $\exists b \forall a ~asks(a, b)$ = There exists a person whom has been asked on a date by everyone.
+\end{enumerate}
+\item Can we claim that $\forall a \exists b~asks(a, b) \rightarrow \exists b \forall a ~asks(a, b)$? Discuss in detail.
+
+No, modus ponens and modus tollens both fail. There could exist a person whom has not asked the same person out on a date as everyone else. Therefore the LHS
+would be true and the RHS false which cannot hold for implication.
+
+\item Can we claim that $\exists b \forall a ~asks(a, b) \rightarrow \forall a \exists b~asks(a, b)$? Discuss in detail.
+
+Yes, if a person has been asked on a date by every person then this implies that every person has asked out at least one person on a date.
+\end{enumerate}
+
+
 
 
 \newpage
@@ -169,6 +213,21 @@ Consider list $\Lambda = \langle w, x, y, z \rangle$, deployed to implement a Qu
 \end{enumerate}
 \end{enumerate}
 
+\bigskip
+\noindent \textbf{Solution:}
+\begin{enumerate}
+\item \begin{enumerate}
+\item \texttt{enqueue(el, $\Lambda$)} : $\Lambda'$ = (append $\Lambda$ (list el)) 
+\item \texttt{dequeue($\Lambda$)} : let temp = (car $\Lambda$); $\Lambda'$ = (cdr $\Lambda$); return temp;
+\end{enumerate}
+\item \begin{enumerate}
+\item $\Lambda' = \langle el, w, x, y, z \rangle$ , Yes correct as new element added to tail of queue
+\item $\Lambda' = \langle el, \langle w, x, y, z \rangle \rangle$ , No 'list' function takes elements as parameters, so now there are only two direct elements inside $\Lambda'$
+\item $\Lambda' = \langle el, w, x, y, z \rangle$ , Yes correct order, new element added to tail of queue
+\end{enumerate}
+\end{enumerate}
+
+
 \newpage
 
 \subsection{Problem 5 (12 pts)}
@@ -224,6 +283,26 @@ Consider list $\Lambda = \langle w, x, y, z \rangle$, deployed to implement a Qu
 
 \end{enumerate}
 
+\bigskip
+\noindent \textbf{Solution:}
+
+\begin{enumerate}
+
+\item No not an equivalence relation. An equivalence relation must be reflexive, symmetric and transitive. The relation is not symmetric, for example a square is a subtype of a quadrilateral
+but a quadrilateral is not a subtype of a square as a square is defined to have four right angled corners.
+
+\item Yes, maximal = quadrilateral \& minimal = square
+\end{enumerate}
+\begin{tikzpicture}[scale=.7]
+\indent	\node (one) at (0,4) {$quadrilateral$};
+\node (two) at (0,2) {$parallelogram$};
+\node (three) at (-2,0) {$rhombus$};
+\node (four) at (2,0) {$rectangle$};
+\node (five) at (0,-2) {$square$};
+\draw (one) -- (two) -- (three) -- (five) -- (four) -- (two);
+\end{tikzpicture}
+
+
 \newpage
 
 \subsection{Problem 7 (8 pts)}
@@ -240,11 +319,14 @@ Consider the set $A = \{ w, x, y, z \}$, and the relations
 \noindent Find the following compositions:
 
 \begin{enumerate}
-\item $S \circ T$
+\item $S \circ T$\\
+$S \circ T = \{ (w, w), (w, x), (w, y), (w, z), (x, w), (x, x), (x, y), (x, z), (z, w), (z, x), (z, z) \}$\\
 
-\item $T \circ S$
+\item $T \circ S$\\
+$T \circ S = \{ (w, x), (w, y), (x, w), (x, x), (x, y), (y, x) , (y, y) \}$\\
 
-\item $T^{-1} \circ S^{-1}$
+\item $T^{-1} \circ S^{-1}$\\
+$T^{-1} \circ S^{-1} = \{ (w, w), (w, x), (w, z), (x, w), (x, x), (x, z), (y, w), (y, x), (z, w), (z, x), (z, z) \}$\\
 \end{enumerate}
 
 \noindent \textbf{NOTE}: Some authors (e.g. Rosen) adopt a different ordering of operands than the one we use in our lecture notes. Please follow the ordering (and the definition) of the lecture notes.
@@ -277,17 +359,17 @@ Consider sets $A = \{1, 2, 3, 4, 5, 6 \}$ and $B = \{ a, b, c, d, e, f \}$.
 \hline
 		& Injective		& Surjective	& Bijective 	& \multicolumn{1}{m{3cm}|}{Neither injective nor surjective}	&	Not a function	\\
 \hline
-(a)		& 		& 		& 	& 			&  \\
+(a)		&	$\times$	&	$\times$	&	$\times$	 &	$\times$	&	$\checkmark$  \\
 \hline
 
-(b)		& 		& 		& 		& 	&	 \\
+(b)		&	$\times$	&	$\times$	&	$\times$	&	$\checkmark$	&	$\times$	 \\
 \hline
 
 
-(c)		& 		& 		& 		& 	&  \\
+(c)		&	$\times$	&	$\times$	&	$\times$	&	$\checkmark$	&	$\times$  \\
 \hline
 
-(d)		& 		& 		& 		&	&  \\
+(d)		&	$\checkmark$	&	$\checkmark$	&	$\checkmark$	&	$\times$	&	$\times$  \\
 \hline
 \end{tabular}
 \end{center}
@@ -295,6 +377,8 @@ Consider sets $A = \{1, 2, 3, 4, 5, 6 \}$ and $B = \{ a, b, c, d, e, f \}$.
 
 \item Is it possible to construct a function $f : A \rightarrow B$ which is surjective and not injective?  Discuss.
 \end{enumerate}
+
+\noindent No, it is not possible since there are 6 elements in the domain and 6 elements in the codomain. In order for the function to be surjective, each element of the codomain has to be mapped to by at least one element of the domain. If the function were to not be injective, then distinct elements of the domain would be mapped to the same element of the codomain which means that some element or elements of the codomain would not be mapped to by at least one element of the domain since there are equal amounts of elements in the domain and codomain, thus it isn't possible for the surjective function to not be injective.
 
 \newpage
 
@@ -323,32 +407,69 @@ laptops = \\
 
 \begin{enumerate}
 
-\item What is the domain and the range of the relation?
-\bigskip
+\item What is the domain and the range of the relation?\\
+dom $laptops = \{legion5, macbookair, xps15, spectre, xps13, swift3, macbookpro,\\
+\hspace*{38mm}dragonfly, envyx360\}$\\\\
+ran $laptops = \{ lenovo, apple, dell, hp, acer\}$
 
 \item What is the result of the expression
 
 \[ \{ xps15, xps13, swift3, envyx360 \}  \lhd laptops \]
+\[ \{ xps15, xps13, swift3, envyx360 \}  \lhd laptops =\\
+\hspace{5mm} \{ \\
+\hspace{10mm} xps15 \mapsto dell,\\
+\hspace{10mm} xps13 \mapsto dell,\\
+\hspace{10mm} swift3 \mapsto acer,\\
+\hspace{10mm} envyx360 \mapsto hp\\
+\hspace{5mm} \}
+\]
 
-\noindent What is the meaning of operator $\lhd$ and where would you deploy such operator in the context of a database management system?
+\noindent What is the meaning of operator $\lhd$ and where would you deploy such operator in the context of a database management system?\\\\
+The $\lhd$ operator restricts the domain of the relation and returns the pairs from the relation where the first element matches one of the elements in the domain restrictor. In the context of a database management system, this domain restriction operator could be used to query the database to determine which \textit{Brands} correspond to certain \textit{Models}, given a specific set of \textit{Models}.
 
 \item What is the result of the expression
 
 \[ laptops \rhd \{ lenovo, hp \} \]
+\[ laptops \rhd \{ lenovo, hp \} =\\
+\hspace{5mm} \{ \\
+\hspace{10mm} legion5 \mapsto lenovo,\\
+\hspace{10mm} spectre \mapsto hp,\\
+\hspace{10mm} dragonfly \mapsto hp,\\
+\hspace{10mm} envyx360 \mapsto hp\\
+\hspace{5mm} \}
+\]
 
-\noindent What is the meaning of operator $\rhd$ and where would you deploy such operator in the context of a database management system?
+\noindent What is the meaning of operator $\rhd$ and where would you deploy such operator in the context of a database management system?\\\\
+The $\rhd$ operator restricts the range of the relation and returns the pairs from the relation where the second element (\textit{Brand}) matches one of the elements in the range restrictor. In the context of a database management system, this range restriction operator could be used to query the database to determine which \textit{Models} correspond to certain \textit{Brands}, given a specific set of \textit{Brands}.
 
 \item What is the result of the expression
 
 \[ \{ legion5, xps15, xps13, dragonfly \} \ndres laptops \]
+\[ \{ legion5, xps15, xps13, dragonfly \} \ndres laptops =\\
+\hspace{5mm} \{ \\
+\hspace{10mm} macbookair \mapsto apple,\\
+\hspace{10mm} spectre \mapsto hp,\\
+\hspace{10mm} swift3 \mapsto acer,\\
+\hspace{10mm} macbookpro \mapsto apple,\\
+\hspace{10mm} envyx360 \mapsto hp\\
+\hspace{5mm} \}
+\]
 
-\noindent What is the meaning of operator $\ndres$ and where would you deploy such operator in the context of a database management system?
+\noindent What is the meaning of operator $\ndres$ and where would you deploy such operator in the context of a database management system?\\\\
+The $\ndres$ operator performs a domain subtration and removes all pairs from the domain of the relation based on their first elements. In the context of a database management system, this operator could be used to remove pairs from the database based on the name of the first element. Here, we removed \textit{laptops} from the domain of the relation whose \textit{Model} matched the ones with the operator.
 
 \item What is the result of the expression
 
 \[ laptops \nrres \{ apple, dell, hp \} \]
+\[ laptops \nrres \{ apple, dell, hp \} =\\
+\hspace{5mm} \{ \\
+\hspace{10mm} legion5 \mapsto lenovo,\\
+\hspace{10mm} swift3 \mapsto acer,\\
+\hspace{5mm} \}
+\]
 
-\noindent What is the meaning of operator $\nrres$ and where would you deploy such operator in the context of a database management system?
+\noindent What is the meaning of operator $\nrres$ and where would you deploy such operator in the context of a database management system?\\\\
+The $\nrres$ operator performs a range subtration and removes all pairs from the codomain of the relation based on their second elements. In the context of a database management system, this operator could be used to remove pairs from the database based on the name of the second element. Here, we removed \textit{laptops} from the codomain of the relation whose \textit{Brand} matched the ones with the operator.
 
 \item Consider the following expression
 
@@ -357,24 +478,34 @@ laptops = \\
 \begin{enumerate}
 \item What is the result of the expression?
 
-\item What is the meaning of operator $\oplus$ and where would you deploy such operator in the context of a database management system?
+\[ laptop \oplus \{ ideapad \mapsto lenovo \} =\\
+\hspace{5mm} \{ \\
+\hspace{10mm} legion5 \mapsto lenovo,\\
+\hspace{10mm} macbookair \mapsto apple,\\
+\hspace{10mm} xps15 \mapsto dell,\\
+\hspace{10mm} spectre \mapsto hp,\\
+\hspace{10mm} xps13 \mapsto dell,\\
+\hspace{10mm} swift3 \mapsto acer,\\
+\hspace{10mm} macbookpro \mapsto apple,\\
+\hspace{10mm} dragonfly \mapsto hp,\\
+\hspace{10mm} envyx360 \mapsto hp\\
+\hspace{10mm} ideapad \mapsto lenovo\\
+\hspace{5mm} \}
+\]
+The relation will have $ideapad \mapsto lenovo$ appended to it.\\
 
-\item Does the result of the expression have a permanent effect on the database (relation)? If not, describe in detail how would you ensure a permanent effect. 
+\item What is the meaning of operator $\oplus$ and where would you deploy such operator in the context of a database management system?\\\\
+The $\oplus$ operator performs a relational override that adds all elements from the RHS of the operator to the relation, if they do not already exist in the relation. In the context of a database management system, this could be used to update the database and add new elements.\\
+
+\item Does the result of the expression have a permanent effect on the database (relation)? If not, describe in detail how would you ensure a permanent effect.\\\\
+This result would not have a permanent effect on the relation, it will only return what the relation would look like with the elements added to it. For a permanent effect, you would need to do
+\[ laptop' = laptop \oplus \{ ideapad \mapsto lenovo \} \]
 
 \end{enumerate}
 
 \end{enumerate}
 
 
-\newpage
-
-\section{What to submit}
-
-\noindent Please submit your \texttt{pdf} file at the Electronic Assignment Submission portal
-
-\centerline{(\url{https://fis.encs.concordia.ca/eas}) }
-
-\noindent under \textbf{Theory Assignment 1}.
 
 \end{spacing}
 
