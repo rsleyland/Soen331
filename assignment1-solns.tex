@@ -175,14 +175,14 @@ Yes, if a person has been asked on a date by every person then this implies that
 \noindent The formalization is as follows:
 
 \begin{enumerate}
-\item $\forall x (~scientist(x) \xrightarrow \neg ~honest(x)) (Type E)$
-\item $\forall x (~scientist(x) \xrightarrow \neg ~honest(x)) (Type E)$
-\item $\forall x (~scientist(x) \xrightarrow ~honest(x)) (Type A)$
-\item $\exists x (~scientist(x) \wedge \neg ~honest(x)) (Type O)$
+\item $\forall x (~scientist(x) \implies \neg~honest(x))$ (Type E)
+\item $\forall x (~scientist(x) \implies \neg~honest(x))$ (Type E)
+\item $\forall x (~scientist(x) \implies ~honest(x))$ (Type A)
+\item $\exists x (~scientist(x) \wedge \neg~honest(x))$ (Type O)
 \item $\exists x (~scientist(x) \wedge ~honest(x)) (Type I)$
-\item $\forall x (~scientist(x) \xrightarrow ~honest(x)) (Type A)$
-\item $\exists x (~scientist(x) \wedge ~honest(x)) (Type I)$
-\item $\exists x (~scientist(x) \wedge \neg ~honest(x)) (Type O)$
+\item $\forall x (~scientist(x) \implies ~honest(x))$ (Type A)
+\item $\exists x (~scientist(x) \wedge ~honest(x))$ (Type I)
+\item $\exists x (~scientist(x) \wedge \neg~honest(x))$ (Type O)
 \end{enumerate}
 
 Statements 1 \& 2 are contradictory with Statements 5 \& 7. Statements 3 \& 6 are contradictory with Statements 4 \& 8. 
