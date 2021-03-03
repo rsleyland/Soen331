@@ -46,16 +46,20 @@ The Object-Z specification language\\
 
 \begin{class}{Contacts}
 \also
+
 \upharpoonright (MakeNewContact, AddNumber, SearchForNumber, DeleteNumber) \\
+
 \begin{state}
 numbers : \mathbb{P} PhoneNumberType\\
 recorded : PhoneNumberType \pfun NameType\\
 \where
 numbers = dom~recorded
 \end{state} \\
+
 \begin{init}
 recorded = \emptyset %\{ \}
 \end{init} \\
+
 \begin{op}{MakeNewContact}
 \Delta (recorded) \\
 number? : PhoneNumberType\\
@@ -65,6 +69,7 @@ number? \notin numbers\\
 name? \notin ran~recorded\\
 recorded' = recorded \cup \{ number? \mapsto name? \}
 \end{op}\\
+
 \begin{op}{AddNumber}
 \Delta (recorded) \\
 number? : PhoneNumberType\\
@@ -73,6 +78,7 @@ number? \notin numbers\\
 name? \in ran~recorded\\
 recorded' = recorded \cup \{ number? \mapsto name? \}
 \end{op}\\
+
 % Not sure if SearchForNumber will return /all/ phone numbers for a given person
 \begin{op}{SearchForNumber}
 name? : NameType\\
@@ -81,6 +87,7 @@ number! : PhoneNumberType\\
 name? \in ran~recorded\\
 number! = recorded(name?)
 \end{op}\\
+
 \begin{op}{DeleteNumber}
 \Delta (recorded) \\
 number? : PhoneNumberType\\
@@ -88,6 +95,7 @@ number? : PhoneNumberType\\
 number? \in numbers\\
 recorded' = \{number?\} \ndres recorded
 \end{op}\\
+
 ...
 \end{class}
 \newpage
