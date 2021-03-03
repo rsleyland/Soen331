@@ -75,11 +75,11 @@ recorded' = recorded \cup \{ number? \mapsto name? \}
 \end{op}\\
 % Not sure if SearchForNumber will return /all/ phone numbers for a given person
 \begin{op}{SearchForNumber}
+\Xi Contacts\\
 name? : NameType\\
-number! : PhoneNumberType\\
+numbers! : \pset number\\
 \ST
-name? \in ran~recorded\\
-number! = recorded(name?)
+numbers! = \{ n : number \cbar recorded(n) = name? \}
 \end{op}\\
 \begin{op}{DeleteNumber}
 \Delta (recorded) \\
