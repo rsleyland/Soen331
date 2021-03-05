@@ -53,28 +53,33 @@ The Object-Z specification language\\
 \begin{state}
 numbers : \mathbb{P} PhoneNumberType\\
 recorded : PhoneNumberType \pfun NameType\\
+count :  \mathbb{N} \\
 \where
-numbers = dom~recorded
+numbers = dom~recorded \\
+count >=0 \\
 \end{state} \\
 \begin{init}
-recorded = \emptyset %\{ \}
+recorded = \emptyset \\ %\{ \}
+count = 0 \\
 \end{init} \\
 \begin{op}{MakeNewContactOK}
-\Delta (recorded) \\
+\Delta (recorded, count) \\
 number? : PhoneNumberType\\
 name? : NameType\\
 \ST
 number? \notin numbers\\
 name? \notin ran~recorded\\
-recorded' = recorded \cup \{ number? \mapsto name? \}
+recorded' = recorded \cup \{ number? \mapsto name? \} \\
+count' = count+1 \\
 \end{op}\\
 \begin{op}{AddNumberOK}
 \Delta (recorded) \\
 number? : PhoneNumberType\\
 \ST
+count > 0 \\
 number? \notin numbers\\
 name? \in ran~recorded\\
-recorded' = recorded \cup \{ number? \mapsto name? \}
+recorded' = recorded \cup \{ number? \mapsto name? \} \\
 \end{op}\\
 % Not sure if SearchForNumber will return /all/ phone numbers for a given person
 \begin{op}{SearchForNumberOK}
@@ -82,22 +87,25 @@ recorded' = recorded \cup \{ number? \mapsto name? \}
 name? : NameType\\
 numbers! : \pset number\\
 \ST
+count > 0 \\
 numbers! = \{ n : number \cbar recorded(n) = name? \}
-\end{op}\\
-\begin{op}{DeleteNumberOK}
-\Delta (recorded) \\
-number? : PhoneNumberType\\
-\ST
-number? \in numbers\\
-recorded' = \{number?\} \ndres recorded
 \end{op}\\
 ...
 \end{class}
 \newpage
-
 \begin{class}{Contacts/cont.}
 ...
 \also
+\begin{op}{DeleteNumberOK}
+\Delta (recorded, count) \\
+number? : PhoneNumberType\\
+\ST
+count > 0 \\
+number? \in numbers\\
+recorded' = \{number?\} \ndres recorded \\
+??? if~name~has~no~more~phoneNumbers~then -> count' = count-1 \\
+\end{op}\\
+\\
 \begin{op}{NameUnknown}
 name? : NameType\\
 response! : Message\\
@@ -142,6 +150,12 @@ response! : Message\\
 \ST
 response! =~'Success'
 \end{op}\\
+...
+\end{class}
+\newpage
+\begin{class}{Contacts/cont.}
+...
+\also
 \mbox{}\\
 MakeNewContact \sdef (MakeNewContactOK \land Success) \oplus (NameExists \lor NumberExists)  \\
 \mbox{}\\
@@ -152,8 +166,7 @@ SearchForNumber \sdef (SearchForNumberOK \land Success) \oplus (NameUnknown \lor
 DeleteNumber \sdef (DeleteNumberOK \land Success) \oplus (NumberUnknown \lor ContactsEmpty)  \\
 \mbox{}\\
 \end{class}
-
-
+\newpage
 \subsection{Class Contacts2}
 
 
