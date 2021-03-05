@@ -75,7 +75,6 @@ count' = count+1 \\
 \begin{op}{AddNumberOK}
 \Delta (recorded) \\
 number? : PhoneNumberType\\
-name? : NameType\\
 \ST
 count > 0 \\
 number? \notin numbers\\
@@ -100,15 +99,12 @@ numbers! = \{ n : number \cbar recorded(n) = name? \}
 \begin{op}{DeleteNumberOK}
 \Delta (recorded, count) \\
 number? : PhoneNumberType\\
-name! : NameType\\
+name! : NameType \rres \{number?\}\\
 \ST
 count > 0 \\
 number? \in numbers\\
 recorded' = \{number?\} \ndres recorded \\
-name! = recorded(number?)\\
-\textbf{if }\#(recorded \rres \{name!\}) = 0\\
-\textbf{then } count' = count-1\\
-%??? if~name~has~no~more~phoneNumbers~then -> count' = count-1 \\
+\boldword{if} \# (recorded \rres \{name!\}) = 0 \boldword{then} count' = count-1 \boldword{else} count'=count\\
 \end{op}\\
 \\
 \begin{op}{NameUnknown}
@@ -164,7 +160,7 @@ response! =~'Success'
 \mbox{}\\
 MakeNewContact \sdef (MakeNewContactOK \land Success) \oplus (NameExists \lor NumberExists)  \\
 \mbox{}\\
-AddNumber \sdef (AddNumberOK \land Success) \oplus (NameUnknown \lor NumberExists \lor ContactsEmpty)  \\
+AddNumber \sdef (AddNumberOK \land Success) \oplus (NameUnknown \lor NumberExists)  \\
 \mbox{}\\
 SearchForNumber \sdef (SearchForNumberOK \land Success) \oplus (NameUnknown \lor ContactsEmpty)  \\
 \mbox{}\\
