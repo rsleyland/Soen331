@@ -100,11 +100,14 @@ numbers! = \{ n : number \cbar recorded(n) = name? \}
 \begin{op}{DeleteNumberOK}
 \Delta (recorded, count) \\
 number? : PhoneNumberType\\
+name! : NameType\\
 \ST
 count > 0 \\
 number? \in numbers\\
 recorded' = \{number?\} \ndres recorded \\
-??? if~name~has~no~more~phoneNumbers~then -> count' = count-1 \\
+name! = recorded(number?)\\
+\#recorded \rres \{name!\} = 0 ::= count' = count-1
+%??? if~name~has~no~more~phoneNumbers~then -> count' = count-1 \\
 \end{op}\\
 \\
 \begin{op}{NameUnknown}
