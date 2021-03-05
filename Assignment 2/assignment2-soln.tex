@@ -170,6 +170,23 @@ DeleteNumber \sdef (DeleteNumberOK \land Success) \oplus (NumberUnknown \lor Con
 \end{class}
 \newpage
 \subsection{Class Contacts2}
+\begin{class}{Contacts2}
+\also
+\upharpoonright (MakeNewContact, AddNumber, SearchForNumber, DeleteNumber, \\
+SearchForPerson) 
+\\~\\ Contacts  \\~\\
+\begin{op}{SearchForPersonOK}
+\Xi Contacts2\\
+number? : PhoneNumberType\\
+name! : NameType\\
+\ST
+number? \in numbers\\
+name! = recorded(number?)
+\end{op}\\
+\mbox{}\\
+SearchForPerson \sdef (SearchForPersonOK \land Success) \oplus (NumberUnknown \lor ContactsEmpty)  \\
+\mbox{}\\
+\end{class}
 
 
 \end{spacing}
