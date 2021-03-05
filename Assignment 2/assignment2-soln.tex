@@ -1,5 +1,5 @@
 \documentclass[12pt]{article}
-\usepackage[top=1in,bottom=1in,left=1in,right=1in]{geometry}
+\usepackage[top=1in,bottom=1in,left=0.75in,right=1in]{geometry}
 \usepackage{alltt}
 \usepackage{array}	
 \usepackage{graphicx}
@@ -103,8 +103,8 @@ number? : PhoneNumberType\\
 name : NameType\\
 \ST
 count > 0 \\
-name = recorded(number?)\\
 number? \in numbers\\
+name = recorded(number?)\\
 recorded' = \{number?\} \ndres recorded \\
 \boldword{if} \# (recorded \rres \{name\}) = 0 \boldword{then} count' = count-1 \boldword{else} count'=count\\
 \end{op}\\
@@ -147,18 +147,17 @@ response! : Message\\
 count =~0\\
 response! =~'Contacts~is~empty'
 \end{op}\\
-\\
-\begin{op}{Success}
-response! : Message\\
-\ST
-response! =~'Success'
-\end{op}\\
 ...
 \end{class}
 \newpage
 \begin{class}{Contacts/cont.}
 ...
 \also
+\begin{op}{Success}
+response! : Message\\
+\ST
+response! =~'Success'
+\end{op}\\
 \mbox{}\\
 MakeNewContact \sdef (MakeNewContactOK \land Success) \oplus (NameExists \lor NumberExists)  \\
 \mbox{}\\
