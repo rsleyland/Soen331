@@ -43,7 +43,10 @@ The Object-Z specification language\\
 \newpage
 
 \section{Contact management}
-
+\subsection{State}
+%State content
+\newpage
+\subsection{Class Contacts}
 \begin{class}{Contacts}
 \also
 \upharpoonright (MakeNewContact, AddNumber, SearchForNumber, DeleteNumber) \\
@@ -56,7 +59,7 @@ numbers = dom~recorded
 \begin{init}
 recorded = \emptyset %\{ \}
 \end{init} \\
-\begin{op}{MakeNewContact}
+\begin{op}{MakeNewContactOK}
 \Delta (recorded) \\
 number? : PhoneNumberType\\
 name? : NameType\\
@@ -65,7 +68,7 @@ number? \notin numbers\\
 name? \notin ran~recorded\\
 recorded' = recorded \cup \{ number? \mapsto name? \}
 \end{op}\\
-\begin{op}{AddNumber}
+\begin{op}{AddNumberOK}
 \Delta (recorded) \\
 number? : PhoneNumberType\\
 \ST
@@ -74,14 +77,14 @@ name? \in ran~recorded\\
 recorded' = recorded \cup \{ number? \mapsto name? \}
 \end{op}\\
 % Not sure if SearchForNumber will return /all/ phone numbers for a given person
-\begin{op}{SearchForNumber}
+\begin{op}{SearchForNumberOK}
 \Xi Contacts\\
 name? : NameType\\
 numbers! : \pset number\\
 \ST
 numbers! = \{ n : number \cbar recorded(n) = name? \}
 \end{op}\\
-\begin{op}{DeleteNumber}
+\begin{op}{DeleteNumberOK}
 \Delta (recorded) \\
 number? : PhoneNumberType\\
 \ST
@@ -93,9 +96,65 @@ recorded' = \{number?\} \ndres recorded
 \newpage
 
 \begin{class}{Contacts/cont.}
-\also
 ...
+\also
+\begin{op}{NameUnknown}
+name? : NameType\\
+response! : Message\\
+\ST
+name? \notin ran~recorded\\
+response! =~'Name~unknown'
+\end{op}\\
+\\
+\begin{op}{NumberUnknown}
+number? : PhoneNumberType\\
+response! : Message\\
+\ST
+number? \notin dom~recorded\\
+response! =~'Number~unknown'
+\end{op}\\
+\\
+\begin{op}{NameExists}
+name? : NameType\\
+response! : Message\\
+\ST
+name? \in ran~recorded\\
+response! =~'Name~already~exists'
+\end{op}\\
+\\
+\begin{op}{NumberExists}
+number? : PhoneNumberType\\
+response! : Message\\
+\ST
+number? \in dom~recorded\\
+response! =~'Number~already~exists'
+\end{op}\\
+\\
+\begin{op}{ContactsEmpty}
+response! : Message\\
+\ST
+count =~0\\
+response! =~'Contacts~is~empty'
+\end{op}\\
+\\
+\begin{op}{Success}
+response! : Message\\
+\ST
+response! =~'Success'
+\end{op}\\
+\mbox{}\\
+MakeNewContact \sdef (MakeNewContactOK \land Success) \oplus (NameExists \lor NumberExists)  \\
+\mbox{}\\
+AddNumber \sdef (AddNumberOK \land Success) \oplus (NameUnknown \lor NumberExists)  \\
+\mbox{}\\
+SearchForNumber \sdef (SearchForNumberOK \land Success) \oplus (NameUnknown \lor ContactsEmpty)  \\
+\mbox{}\\
+DeleteNumber \sdef (DeleteNumberOK \land Success) \oplus (NumberUnknown \lor ContactsEmpty)  \\
+\mbox{}\\
 \end{class}
+
+
+\subsection{Class Contacts2}
 
 
 \end{spacing}
