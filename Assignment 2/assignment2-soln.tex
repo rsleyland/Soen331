@@ -75,6 +75,7 @@ count' = count+1 \\
 \begin{op}{AddNumberOK}
 \Delta (recorded) \\
 number? : PhoneNumberType\\
+name? : NameType\\
 \ST
 count > 0 \\
 number? \notin numbers\\
@@ -161,7 +162,7 @@ response! =~'Success'
 \mbox{}\\
 MakeNewContact \sdef (MakeNewContactOK \land Success) \oplus (NameExists \lor NumberExists)  \\
 \mbox{}\\
-AddNumber \sdef (AddNumberOK \land Success) \oplus (NameUnknown \lor NumberExists)  \\
+AddNumber \sdef (AddNumberOK \land Success) \oplus (NameUnknown \lor NumberExists \lor ContactsEmpty)  \\
 \mbox{}\\
 SearchForNumber \sdef (SearchForNumberOK \land Success) \oplus (NameUnknown \lor ContactsEmpty)  \\
 \mbox{}\\
