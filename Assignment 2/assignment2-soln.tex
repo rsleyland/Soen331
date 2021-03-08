@@ -1,5 +1,5 @@
 \documentclass[12pt]{article}
-\usepackage[top=1in,bottom=1in,left=1in,right=1in]{geometry}
+\usepackage[top=1in,bottom=1in,left=0.75in,right=1in]{geometry}
 \usepackage{alltt}
 \usepackage{array}	
 \usepackage{graphicx}
@@ -45,6 +45,21 @@ The Object-Z specification language\\
 \section{Contact management}
 \subsection{State}
 %State content
+\begin{enumerate}
+\item This is our diagram for the state of the system:\\
+\includegraphics[scale=.25]{state-diagram}
+\item The formal definition of \emph{numbers} is as follows:
+\[ numbers \ : \ \mathbb{P}\ PhoneNumberType \]
+\item The relation \emph{recorded} must indeed be captured by a function. A function, by definition, enforces that each element of a source set (that is, the set in the domain) is mapped to exactly one element of a target set (a set of elements in the range). Part of the requirements for the system is that people may not share phone numbers. By making \emph{recorded} a function, and setting the \emph{numbers} set as a subset of the domain, the requirement of a phone number being associated to a single person is trivially met. If this is not done, an additional series of specifications must be defined such that this requirement is observed \emph{at best}, and at worst, there is a severe risk of failing to meet the defined requirements. Thus, it is at least convenient, if not necessary that \emph{recorded} is a function where \emph{numbers} is a subset of the domain. 
+\newpage
+\item The domain of \emph{recorded} is \emph{numbers}, and its codomain is \emph{NameType}.
+\item The function \emph{recorded} is a partial function, because partial functions, by definition, do not map all elements in the domain to an element in the co-domain. Specifically, \emph{recorded} doesn’t relate every element of PhoneNumberType to NameType.
+\item The function \emph{recorded} will not be either injective, surjective, or bijective. It cannot be injective because an injective function, by definition, is a function where one element in the domain is mapped to at most one element in the co-domain, but recorded allows for multiple phone numbers to be associated with one person, so multiple parts of the domain could be associated with an element of the co-domain. It cannot be surjective as a surjective function, by definition, is a function where each element in the co-domain has at least one element in the domain mapped to it. In \emph{recorded}, there are elements contained in the co-domain of \emph{recorded} that are not in the range of \emph{recorded} therefore there exists elements in the codomain which are not mapped to by any element of the domain. It cannot be bijective because a bijective function is both injective and surjective and it has already been proven that this function is neither. Therefore, \emph{recorded} must be a general function because every element in the domain is mapped to one element of the co-domain, but more than one element of the domain can be mapped to the same element of the co-domain.
+\item The formal definition of \emph{recorded} is as follows:
+\[ recorded \ : \ PhoneNumberType \pfun NameType \]
+
+
+\end{enumerate}
 \newpage
 \subsection{Class Contacts}
 \begin{class}{Contacts}
@@ -103,8 +118,8 @@ number? : PhoneNumberType\\
 name : NameType\\
 \ST
 count > 0 \\
-name = recorded(number?)\\
 number? \in numbers\\
+name = recorded(number?)\\
 recorded' = \{number?\} \ndres recorded \\
 \boldword{if} \# (recorded \rres \{name\}) = 0 \boldword{then} count' = count-1 \boldword{else} count'=count\\
 \end{op}\\
@@ -147,18 +162,17 @@ response! : Message\\
 count =~0\\
 response! =~'Contacts~is~empty'
 \end{op}\\
-\\
-\begin{op}{Success}
-response! : Message\\
-\ST
-response! =~'Success'
-\end{op}\\
 ...
 \end{class}
 \newpage
 \begin{class}{Contacts/cont.}
 ...
 \also
+\begin{op}{Success}
+response! : Message\\
+\ST
+response! =~'Success'
+\end{op}\\
 \mbox{}\\
 MakeNewContact \sdef (MakeNewContactOK \land Success) \oplus (NameExists \lor NumberExists)  \\
 \mbox{}\\
@@ -171,6 +185,23 @@ DeleteNumber \sdef (DeleteNumberOK \land Success) \oplus (NumberUnknown \lor Con
 \end{class}
 \newpage
 \subsection{Class Contacts2}
+\begin{class}{Contacts2}
+\also
+\upharpoonright (MakeNewContact, AddNumber, SearchForNumber, DeleteNumber, \\
+SearchForPerson) 
+\\~\\ Contacts  \\~\\
+\begin{op}{SearchForPersonOK}
+\Xi Contacts2\\
+number? : PhoneNumberType\\
+name! : NameType\\
+\ST
+number? \in numbers\\
+name! = recorded(number?)
+\end{op}\\
+\mbox{}\\
+SearchForPerson \sdef (SearchForPersonOK \land Success) \oplus (NumberUnknown \lor ContactsEmpty)  \\
+\mbox{}\\
+\end{class}
 
 
 \end{spacing}
