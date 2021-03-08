@@ -68,31 +68,26 @@ The Object-Z specification language\\
 \begin{state}
 numbers : \mathbb{P} PhoneNumberType\\
 recorded : PhoneNumberType \pfun NameType\\
-count :  \mathbb{N} \\
 \where
 numbers = dom~recorded \\
-count >=0 \\
 \end{state} \\
 \begin{init}
 recorded = \emptyset \\ %\{ \}
-count = 0 \\
 \end{init} \\
 \begin{op}{MakeNewContactOK}
-\Delta (recorded, count) \\
+\Delta (recorded) \\
 number? : PhoneNumberType\\
 name? : NameType\\
 \ST
 number? \notin numbers\\
 name? \notin ran~recorded\\
 recorded' = recorded \cup \{ number? \mapsto name? \} \\
-count' = count+1 \\
 \end{op}\\
 \begin{op}{AddNumberOK}
 \Delta (recorded) \\
 number? : PhoneNumberType\\
 name? : NameType\\
 \ST
-count > 0 \\
 number? \notin numbers\\
 name? \in ran~recorded\\
 recorded' = recorded \cup \{ number? \mapsto name? \} \\
@@ -103,7 +98,6 @@ recorded' = recorded \cup \{ number? \mapsto name? \} \\
 name? : NameType\\
 numbers! : \pset number\\
 \ST
-count > 0 \\
 numbers! = \{ n : number \cbar recorded(n) = name? \}
 \end{op}\\
 ...
@@ -113,15 +107,13 @@ numbers! = \{ n : number \cbar recorded(n) = name? \}
 ...
 \also
 \begin{op}{DeleteNumberOK}
-\Delta (recorded, count) \\
+\Delta (recorded) \\
 number? : PhoneNumberType\\
 name : NameType\\
 \ST
-count > 0 \\
 number? \in numbers\\
 name = recorded(number?)\\
 recorded' = \{number?\} \ndres recorded \\
-\boldword{if} \# (recorded \rres \{name\}) = 0 \boldword{then} count' = count-1 \boldword{else} count'=count\\
 \end{op}\\
 \\
 \begin{op}{NameUnknown}
@@ -159,7 +151,6 @@ response! =~'Number~already~exists'
 \begin{op}{ContactsEmpty}
 response! : Message\\
 \ST
-count =~0\\
 response! =~'Contacts~is~empty'
 \end{op}\\
 ...
