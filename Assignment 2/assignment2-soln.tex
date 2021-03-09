@@ -96,9 +96,17 @@ recorded' = recorded \cup \{ number? \mapsto name? \} \\
 \begin{op}{SearchForNumberOK}
 \Xi Contacts\\
 name? : NameType\\
-numbers! : \pset number\\
+numberset! : \pset numbers\\
 \ST
-numbers! = \{ n : number \cbar recorded(n) = name? \}
+name? \in ran~recorded\\
+numberset! = \{ n : numbers \cbar recorded(n) = name? \}
+\end{op}\\
+\begin{op}{DeleteNumberOK}
+\Delta (recorded) \\
+number? : PhoneNumberType\\
+\ST
+number? \in numbers\\
+recorded' = \{number?\} \ndres recorded \\
 \end{op}\\
 ...
 \end{class}
@@ -106,16 +114,6 @@ numbers! = \{ n : number \cbar recorded(n) = name? \}
 \begin{class}{Contacts/cont.}
 ...
 \also
-\begin{op}{DeleteNumberOK}
-\Delta (recorded) \\
-number? : PhoneNumberType\\
-name : NameType\\
-\ST
-number? \in numbers\\
-name = recorded(number?)\\
-recorded' = \{number?\} \ndres recorded \\
-\end{op}\\
-\\
 \begin{op}{NameUnknown}
 name? : NameType\\
 response! : Message\\
@@ -147,18 +145,6 @@ response! : Message\\
 number? \in dom~recorded\\
 response! =~'Number~already~exists'
 \end{op}\\
-\\
-\begin{op}{ContactsEmpty}
-response! : Message\\
-\ST
-response! =~'Contacts~is~empty'
-\end{op}\\
-...
-\end{class}
-\newpage
-\begin{class}{Contacts/cont.}
-...
-\also
 \begin{op}{Success}
 response! : Message\\
 \ST
@@ -167,11 +153,11 @@ response! =~'Success'
 \mbox{}\\
 MakeNewContact \sdef (MakeNewContactOK \land Success) \oplus (NameExists \lor NumberExists)  \\
 \mbox{}\\
-AddNumber \sdef (AddNumberOK \land Success) \oplus (NameUnknown \lor NumberExists \lor ContactsEmpty)  \\
+AddNumber \sdef (AddNumberOK \land Success) \oplus (NameUnknown \lor NumberExists)  \\
 \mbox{}\\
-SearchForNumber \sdef (SearchForNumberOK \land Success) \oplus (NameUnknown \lor ContactsEmpty)  \\
+SearchForNumber \sdef (SearchForNumberOK \land Success) \oplus (NameUnknown)  \\
 \mbox{}\\
-DeleteNumber \sdef (DeleteNumberOK \land Success) \oplus (NumberUnknown \lor ContactsEmpty)  \\
+DeleteNumber \sdef (DeleteNumberOK \land Success) \oplus (NumberUnknown)  \\
 \mbox{}\\
 \end{class}
 \newpage
@@ -190,7 +176,7 @@ number? \in numbers\\
 name! = recorded(number?)
 \end{op}\\
 \mbox{}\\
-SearchForPerson \sdef (SearchForPersonOK \land Success) \oplus (NumberUnknown \lor ContactsEmpty)  \\
+SearchForPerson \sdef (SearchForPersonOK \land Success) \oplus (NumberUnknown)  \\
 \mbox{}\\
 \end{class}
 
