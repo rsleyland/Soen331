@@ -31,7 +31,7 @@ Assignment 1 on extended finite state machines}
 \noindent $q_0: \text{off}$\\
 %\noindent $V: \{\}$\\
 \noindent $\Lambda$: Transition specifications\\
-\indent 1. $\rightarrow off$\\
+\indent 1. $\rightarrow off $\\
 \indent 2. $off \xrightarrow {\text { turn on }} on$\\
 \indent 3. $on \xrightarrow {\text { turn off / (beep; turn light off) }} off$\\
 \newpage
@@ -65,7 +65,31 @@ Assignment 1 on extended finite state machines}
 \newpage
 
 \noindent As $active$ is a composite state, it is defined as the tuple $S = (Q, \Sigma_1, \Sigma_2, q_0, V, \Lambda)$, where\\\\
-%MISSING ACTIVE COMPOSITE STATE
+\noindent $Q = \{\text {setting, washing, rinse, spin}\}$\\
+\noindent $\Sigma_1 = \{\text {start-finish, after (3 min), after (2 min)}\}$\\ 
+\noindent $\Sigma_2 = \{\text {lock door}\}$\\
+\noindent $q_0: \text{setting}$\\
+%\noindent $V: \{\}$\\
+\noindent $\Lambda$: Transition specifications\\
+\indent 1. $\xrightarrow {} setting$\\
+\indent 2. $setting \xrightarrow {\text { [door is closed] start-finish / lock door }} washing $\\
+\indent 3. $washing \xrightarrow {} rinse$\\
+\indent 4. $rinse \xrightarrow {\text { after (3 min) }} spin$\\
+\indent 5. $spin  \xrightarrow {\text { after (2 min)}}$\\
+
+\noindent The EFSM of the $washing$ state is the tuple $S = (Q, \Sigma_1 q_0, V, \Lambda)$, where\\\
+\noindent $Q = \{\text {heating, longwash, shortwash}\}$\\
+\noindent $\Sigma_1 = \{\text {after (2 min), after (30 min), after (10 min)}\}$\\ 
+\noindent $q_0: \text{heating}$\\
+\noindent $V: \text{ currentTemp: } \mathbb{R}.$\\
+\noindent $\Lambda$: Transition specifications\\
+\indent 1. $\xrightarrow {} heating$\\
+\indent 2. $heating \xrightarrow {\text { [ ct $<$ desiredTemp] after (2 min)}} heating $\\
+\indent 3. $heating \xrightarrow {\text { [ ct $\geq$ desiredTemp] [mode is long] after (2 min)}}  longwash$\\
+\indent 4. $heating \xrightarrow {\text { [ ct $\geq$ desiredTemp] [mode is short] after (2 min)}}  shortwash$\\
+\indent 5. $longwash  \xrightarrow {\text { after (30 min)}}$\\
+\indent 5. $shortwash  \xrightarrow {\text { after (10 min)}}$\\
+
 \noindent The UML state diagram is shown in Figure~\ref{fig:wm-fig2}.\\\\
 \newpage
 
