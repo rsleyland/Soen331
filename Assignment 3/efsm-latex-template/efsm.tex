@@ -80,7 +80,7 @@ Extended Finite State Machines\\
 \noindent The UML state diagram is shown in Figure~\ref{fig:wm-fig1}.\\
 \newpage
 
-\noindent As $active$ is a composite state, it is defined as the tuple $S = (Q, \Sigma_1, \Sigma_2, q_0, V, \Lambda)$, where\\\\
+\noindent As $active$ is a composite state, it is defined as the tuple $S = (Q, \Sigma_1, \Sigma_2, q_0, V, \Lambda)$, where\\
 \noindent $Q = \{\text {setting, washing, rinse, spin}\}$\\
 \noindent $\Sigma_1 = \{\text {start-finish, after (3 min), after (2 min)}\}$\\ 
 \noindent $\Sigma_2 = \{\text {lock door}\}$\\
@@ -93,7 +93,7 @@ Extended Finite State Machines\\
 \indent 4. $rinse \xrightarrow {\text { after (3 min) }} spin$\\
 \indent 5. $spin  \xrightarrow {\text { after (2 min)}}$\\
 
-\noindent The EFSM of the $washing$ state is the tuple $S = (Q, \Sigma_1 q_0, V, \Lambda)$, where\\\
+\noindent As $washing$ is a composite state, it is defined as the tuple $S = (Q, \Sigma_1 q_0, V, \Lambda)$, where\\
 \noindent $Q = \{\text {heating, longwash, shortwash}\}$\\
 \noindent $\Sigma_1 = \{\text {after (2 min), after (30 min), after (10 min)}\}$\\ 
 \noindent $q_0: \text{heating}$\\
