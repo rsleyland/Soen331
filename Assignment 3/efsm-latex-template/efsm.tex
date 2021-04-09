@@ -24,7 +24,7 @@ Assignment 1 on extended finite state machines}
 
 \section{Washing Machine formal specification}
 
-\noindent The EFSM of the washing machine is the tuple $S = (Q, \Sigma_1, \Sigma_2, q_0, V, \Lambda)$, where\\
+\noindent The EFSM of the washing machine is the tuple $S = (Q, \Sigma_1, \Sigma_2, q_0, \Lambda)$, where\\
 \noindent $Q = \{\text {off, on}\}$\\
 \noindent $\Sigma_1 = \{\text {turn on, turn off}\}$\\
 \noindent $\Sigma_2 = \{\text {beep, turn light off}\}$\\
@@ -36,7 +36,7 @@ Assignment 1 on extended finite state machines}
 \indent 3. $on \xrightarrow {\text { turn off / (beep; turn light off) }} off$\\
 \newpage
 
-\noindent As $on$ is a composite state, it is defined as the tuple $S = (Q, \Sigma_1, \Sigma_2, q_0, V, \Lambda)$, where\\
+\noindent As $on$ is a composite state, it is defined as the tuple $S = (Q, \Sigma_1, \Sigma_2, q_0, \Lambda)$, where\\
 \noindent $Q = \{\text {operating, servicing}\}$\\
 \noindent $\Sigma_1 = \{\text {after (10 s), service signal [idle], machine fixed}\}$\\
 \noindent $\Sigma_2 = \{\text {blinking, long beep}\}$\\
@@ -47,7 +47,7 @@ Assignment 1 on extended finite state machines}
 \indent 2. $operating \xrightarrow {\text { service signal [idle] }} service$\\
 \indent 3. $service \xrightarrow {\text { machine fixed }} operating$\\
 
-\noindent As $operating$ is a composite state, it is defined as the tuple $S = (Q, \Sigma_1, \Sigma_2, q_0, V, \Lambda)$, where\\
+\noindent As $operating$ is a composite state, it is defined as the tuple $S = (Q, \Sigma_1, \Sigma_2, q_0, \Lambda)$, where\\
 \noindent $Q = \{\text {idle, standby, active}\}$\\
 \noindent $\Sigma_1 = \{\text {light on, start signal or finish button, power off, power on, completion, cancel, cancel [setting]}\}$\\ 
 \noindent $\Sigma_2 = \{\text {turn light on, clear settings, unlock door}\}$\\
@@ -69,7 +69,7 @@ Assignment 1 on extended finite state machines}
 \noindent $\Sigma_1 = \{\text {start-finish, after (3 min), after (2 min)}\}$\\ 
 \noindent $\Sigma_2 = \{\text {lock door}\}$\\
 \noindent $q_0: \text{setting}$\\
-%\noindent $V: \{\}$\\
+\noindent $V: \text{ door = \{open, closed\} }$\\
 \noindent $\Lambda$: Transition specifications\\
 \indent 1. $\xrightarrow {} setting$\\
 \indent 2. $setting \xrightarrow {\text { [door is closed] start-finish / lock door }} washing $\\
@@ -81,7 +81,7 @@ Assignment 1 on extended finite state machines}
 \noindent $Q = \{\text {heating, longwash, shortwash}\}$\\
 \noindent $\Sigma_1 = \{\text {after (2 min), after (30 min), after (10 min)}\}$\\ 
 \noindent $q_0: \text{heating}$\\
-\noindent $V: \text{ currentTemp: } \mathbb{R}.$\\
+\noindent $V: \text{ currentTemp, desiredTemperature: } \mathbb{R}, \text{ mode = \{short, long\}}$\\
 \noindent $\Lambda$: Transition specifications\\
 \indent 1. $\xrightarrow {} heating$\\
 \indent 2. $heating \xrightarrow {\text { [ ct $<$ desiredTemp] after (2 min)}} heating $\\
