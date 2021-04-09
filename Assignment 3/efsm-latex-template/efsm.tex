@@ -12,11 +12,27 @@
     pdfborder={0 0 0},
 ]{hyperref}
 
-\title{SOEN331: Introduction to Formal Methods\\for Software Engineering\\
-Assignment 1 on extended finite state machines}
-\author{Author's name}
-\date{\today}
-
+\title{Concordia University\\
+Department of Computer Science and Software Engineering\\
+\textbf{SOEN 331 - S and U\\Introduction to Formal Methods\\for Software Engineering}\\
+\ \\
+\textbf{Assignment 3 - Solutions}\\
+Extended Finite State Machines\\
+\textbf{Team 19 - Section U}}
+\author{
+	\textbf{Samuel Boaknin}\\
+	\texttt{40009692}
+	\and
+	\textbf{Ryan Leyland}\\
+	\texttt{40015165}
+	\and
+	\textbf{Saleha Tariq}\\
+	\texttt{40006997}
+	\and
+	\textbf{Meng Susana Ung}\\
+	\texttt{40099729}
+}
+\date{Due Date: April 9, 2021}
 \begin{document}
 \begin{spacing}{1.5}
 
@@ -34,7 +50,6 @@ Assignment 1 on extended finite state machines}
 \indent 1. $\rightarrow off $\\
 \indent 2. $off \xrightarrow {\text { turn on }} on$\\
 \indent 3. $on \xrightarrow {\text { turn off / (beep; turn light off) }} off$\\
-\newpage
 
 \noindent As $on$ is a composite state, it is defined as the tuple $S = (Q, \Sigma_1, \Sigma_2, q_0, \Lambda)$, where\\
 \noindent $Q = \{\text {operating, servicing}\}$\\
@@ -46,6 +61,7 @@ Assignment 1 on extended finite state machines}
 \indent 1. $\xrightarrow {\text { after (10 s) / (blinking; long beep) }} operating$\\
 \indent 2. $operating \xrightarrow {\text { service signal [idle] }} service$\\
 \indent 3. $service \xrightarrow {\text { machine fixed }} operating$\\
+\newpage
 
 \noindent As $operating$ is a composite state, it is defined as the tuple $S = (Q, \Sigma_1, \Sigma_2, q_0, \Lambda)$, where\\
 \noindent $Q = \{\text {idle, standby, active}\}$\\
