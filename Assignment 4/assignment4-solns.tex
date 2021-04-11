@@ -21,6 +21,7 @@
 \usepackage{booktabs}
 %\usepackage{tabulary}
 \usetikzlibrary{matrix}
+\usetikzlibrary{fit}
 %\newcolumntype{L}{>{\centering\arraybackslash}m{3cm}}
 
 \title{Concordia University\\
@@ -53,13 +54,224 @@ Temporal Logic\\
 \newpage
 
 \section{Question 1}
+\renewcommand\labelenumi{(\theenumi)}
+\begin{enumerate}
+
+
+\item %\leavevmode\vadjust{\vspace{-\baselineskip}}\newline
+
+\begin{tikzpicture}[baseline=(current  bounding  box.center), thick]
+\node [circle, draw, fill=black, minimum size=.8cm] (a1) at (0,0) {};
+\node [circle, draw, fill=black, minimum size=.8cm] (a2) at (2.5,0) {};
+\node [circle, draw, fill=black, minimum size=.8cm] (a3) at (5,0) {};
+\node [circle, draw, fill=black, minimum size=.8cm] (a4) at (7.5,0) {};
+\node [circle, draw, fill=black, minimum size=.8cm] (a5) at (10,0) {};
+
+\draw[->] (a1) -- (a2); 
+\draw[->] (a2) -- (a3);
+\draw[->] (a3) -- (a4);
+\draw[->] (a4) -- (a5);
+\end{tikzpicture}
+\begin{table}[H]
+%\centering
+\hspace{1cm}\begin{tabular}{p{0.72cm}p{1cm}p{0.72cm}p{1cm}p{0.72cm}p{1cm}p{0.72cm}p{1cm}p{0.72cm}p{1cm}p{0.72cm}p{1cm}}
+a & & e & & e & & e & &  g \\
+c \\
+e \\
+\end{tabular}
+%\caption{}
+\label{tab:Q1_1}
+\end{table}
+
+
+\item 
+\begin{tikzpicture}[baseline=(current  bounding  box.center), thick]
+\node [circle, draw, fill=black, minimum size=.8cm] (a1) at (0,0) {};
+\node [circle, draw, fill=black, minimum size=.8cm] (a2) at (2.5,0) {};
+\node [circle, draw, fill=black, minimum size=.8cm] (a3) at (5,0) {};
+\node [circle, draw, fill=black, minimum size=.8cm] (a4) at (7.5,0) {};
+\node [circle, draw, fill=black, minimum size=.8cm] (a5) at (10,0) {};
+\node [circle, draw, fill=black, minimum size=.8cm] (a6) at (12.5,0) {};
+\node [circle, minimum size=.9cm] (a7) at (15,0) {};
+
+\draw[->] (a1) -- (a2); 
+\draw[->] (a2) -- (a3);
+\draw[->] (a3) -- (a4);
+\draw[->] (a4) -- (a5);
+\draw[->] (a5) -- (a6);
+\end{tikzpicture}
+\begin{table}[H]
+%\centering
+\hspace{1cm}\begin{tabular}{p{0.72cm}p{1cm}p{0.72cm}p{1cm}p{0.72cm}p{1cm}p{0.72cm}p{1cm}p{0.72cm}p{0.8cm}p{0.72cm}p{1cm}}
+a & & y & & y & & y & & x & & w \\
+d & & & & & & & & y \\
+\end{tabular}
+%\caption{}
+\label{tab:Q1_2}
+\end{table}
+
+
+\item 
+\begin{tikzpicture}[baseline=(current  bounding  box.center), thick]
+\node [circle, draw, fill=black, minimum size=.8cm] (a1) at (0,0) {};
+\node [circle, draw, fill=black, minimum size=.8cm] (a2) at (2.5,0) {};
+\node [circle, draw, fill=black, minimum size=.8cm] (a3) at (5,0) {};
+\node [circle, draw, fill=black, minimum size=.8cm] (a4) at (7.5,0) {};
+\node [circle, draw, fill=black, minimum size=.8cm] (a5) at (10,0) {};
+\node [circle, draw, fill=black, minimum size=.8cm] (a6) at (12.5,0) {};
+\node [circle, minimum size=.9cm] (a7) at (15,0) {};
+
+\draw[->] (a1) -- (a2); 
+\draw[->] (a2) -- (a3);
+\draw[->] (a3) -- (a4);
+\draw[->] (a4) -- (a5);
+\draw[->] (a5) -- (a6);
+\draw[->] (a6) -- (a7);
+\end{tikzpicture}
+\begin{table}[H]
+%\centering
+\hspace{1cm}\begin{tabular}{p{0.72cm}p{1cm}p{0.72cm}p{1cm}p{0.72cm}p{1cm}p{0.72cm}p{1cm}p{0.72cm}p{0.8cm}p{0.72cm}p{1cm}}
+a & & y & & y & & y & & x & & z \\
+d & & & & & & & & y & & n \\
+\end{tabular}
+%\caption{}
+\label{tab:Q1_3}
+\end{table}
+
+\begin{tikzpicture}[baseline=(current  bounding  box.center), thick]
+\node [circle, draw, fill=black, minimum size=.8cm] (a1) at (0,0) {};
+\node [circle, draw, fill=black, minimum size=.8cm] (a2) at (2.5,0) {};
+\node [circle, draw, fill=black, minimum size=.8cm] (a3) at (5,0) {};
+\node [circle, minimum size=.9cm] (a4) at (7.5,0) {};
+\node [fit=(a3) (a4),line width=2pt,draw,dotted,black] {};
+
+\draw[->] (a1) -- (a2); 
+\draw[->] (a2) -- (a3);
+\draw[dashed, ->] (a3) -- (a4);
+\end{tikzpicture}
+\begin{table}[H]
+%\centering
+\hspace{1cm}\begin{tabular}{p{0.72cm}p{1cm}p{0.72cm}p{1cm}p{0.72cm}p{1cm}p{0.72cm}p{1cm}p{0.72cm}p{0.8cm}p{0.72cm}p{1cm}}
+b & & y & & y ... \\
+d & \\
+\end{tabular}
+%\caption{}
+\label{tab:Q1_3cont}
+\end{table}
+
+
+\item 
+\begin{tikzpicture}[baseline=(current  bounding  box.center), thick]
+\node [circle, draw, fill=black, minimum size=.8cm] (a1) at (0,0) {};
+\node [circle, draw, fill=black, minimum size=.8cm] (a2) at (2.5,0) {};
+\node [circle, draw, fill=black, minimum size=.8cm] (a3) at (5,0) {};
+\node [circle, draw, fill=black, minimum size=.8cm] (a4) at (7.5,0) {};
+\node [circle, draw, fill=black, minimum size=.8cm] (a5) at (10,0) {};
+\node [circle, draw, fill=black, minimum size=.8cm] (a6) at (12.5,0) {};
+\node [circle, minimum size=.9cm] (a7) at (15,0) {};
+\node [fit=(a6) (a7),line width=2pt,draw,dotted,black] {};
+
+\draw[->] (a1) -- (a2); 
+\draw[->] (a2) -- (a3);
+\draw[->] (a3) -- (a4);
+\draw[->] (a4) -- (a5);
+\draw[->] (a5) -- (a6);
+\draw[dashed, ->] (a6) -- (a7);
+\end{tikzpicture}
+\begin{table}[H]
+%\centering
+\hspace{1cm}\begin{tabular}{p{0.72cm}p{1cm}p{0.72cm}p{1cm}p{0.72cm}p{1cm}p{0.72cm}p{1cm}p{0.72cm}p{0.8cm}p{0.72cm}p{1cm}}
+b & & y & & y & & y & & y & & y ... \\
+c & & & & & & & & g \\
+\end{tabular}
+%\caption{}
+\label{tab:Q1_4}
+\end{table}
+
+
+\item 
+\begin{tikzpicture}[baseline=(current  bounding  box.center), thick]
+\node [circle, draw, fill=black, minimum size=.8cm] (a1) at (0,0) {};
+\node [circle, draw, fill=black, minimum size=.8cm] (a2) at (2.5,0) {};
+\node [circle, draw, fill=black, minimum size=.8cm] (a3) at (5,0) {};4
+\node [circle, minimum size=.9cm] (a4) at (7.5,0) {};
+
+\draw[->] (a1) -- (a2); 
+\draw[->] (a2) -- (a3);
+\draw[dashed, ->] (a3) -- (a4);
+\node [fit=(a3) (a4),line width=2pt,draw,dotted,black] {};
+
+\end{tikzpicture}
+\begin{table}[H]
+%\centering
+\hspace{1cm}\begin{tabular}{p{0.72cm}p{1cm}p{0.72cm}p{1cm}p{0.72cm}p{1cm}p{0.72cm}p{1cm}p{0.72cm}p{0.8cm}p{0.72cm}p{1cm}}
+b & & y & & y ... \\
+d  \\
+\end{tabular}
+%\caption{}
+\label{tab:Q1_5}
+\end{table}
+
+
+
+\item 
+\begin{tikzpicture}[baseline=(current  bounding  box.center), thick]
+\node [circle, draw, fill=black, minimum size=.8cm] (a1) at (0,0) {};
+\node [circle, draw, fill=black, minimum size=.8cm] (a2) at (2.5,0) {};
+\node [circle, draw, fill=black, minimum size=.8cm] (a3) at (5,0) {};
+\node [circle, draw, fill=black, minimum size=.8cm] (a4) at (7.5,0) {};
+\node [circle, draw, fill=black, minimum size=.8cm] (a5) at (10,0) {};
+
+\draw[->] (a1) -- (a2); 
+\draw[->] (a2) -- (a3);
+\draw[->] (a3) -- (a4);
+\draw[->] (a4) -- (a5);
+\end{tikzpicture}
+\begin{table}[H]
+%\centering
+\hspace{1cm}\begin{tabular}{p{0.72cm}p{1cm}p{0.72cm}p{1cm}p{0.72cm}p{1cm}p{0.72cm}p{1cm}p{0.72cm}p{0.8cm}p{0.72cm}p{1cm}}
+c & & & & & & & & g \\
+\end{tabular}
+%\caption{}
+\label{tab:Q1_6}
+\end{table}
+
+
+\item 
+\begin{tikzpicture}[baseline=(current  bounding  box.center), thick]
+\node [circle, draw, fill=black, minimum size=.8cm] (a1) at (0,0) {};
+\node [circle, draw, fill=black, minimum size=.8cm] (a2) at (2.5,0) {};
+\node [circle, draw, fill=black, minimum size=.8cm] (a3) at (5,0) {};
+\node [circle, minimum size=.9cm] (a4) at (7.5,0) {};
+\node [fit=(a3) (a4),line width=2pt,draw,dotted,black] {};
+
+\draw[->] (a1) -- (a2); 
+\draw[->] (a2) -- (a3);
+\draw[dashed, ->] (a3) -- (a4);
+\end{tikzpicture}
+\begin{table}[H]
+%\centering
+\hspace{1cm}\begin{tabular}{p{0.72cm}p{1cm}p{0.72cm}p{1cm}p{0.72cm}p{1cm}p{0.72cm}p{1cm}p{0.72cm}p{0.8cm}p{0.72cm}p{1cm}}
+d & & y & & y ... \\
+\end{tabular}
+%\caption{}
+\label{tab:Q1_7}
+\end{table}
+
+There exists three model's whereby the program terminates, given by the following expressions: \\
+$<(a \land c \land e),~e,~e,~e,~g>$ \\ 
+$<(a \land d),~y,~y,~y,~(x \land y),~w>$ \\
+$<c,~\emptyset,~\emptyset,~\emptyset,~g>$ \\
+
+\end{enumerate}
+
+
+
 \newpage
-
-
-
 \section{Question 2}
 \renewcommand\labelenumi{(\theenumi)}
 \begin{enumerate}
+
 \item %\leavevmode\vadjust{\vspace{-\baselineskip}}\newline
 \begin{tikzpicture}[baseline=(current  bounding  box.center), thick]
 \node [circle, draw, fill=black, minimum size=.8cm] (a1) at (0,0) {};
