@@ -332,9 +332,92 @@ $\phi$ &  & $\phi$ &  & $\phi$ & ... &  &  &  &  &  &  \\
 \end{table}
 If $\phi$ is an invariant, then from $i+1$ onwards, $\psi$ could become an invariant.\\
 
-\item
-\item
-\item
+\item %\leavevmode\vadjust{\vspace{-\baselineskip}}\newline
+\begin{tikzpicture}[baseline=(current  bounding  box.center), thick]
+\node [circle, draw, fill=black, minimum size=.8cm] (a1) at (0,0) {};
+\node [circle, draw, fill=black, minimum size=.8cm] (a2) at (2.5,0) {};
+\node [circle, draw, fill=black, minimum size=.8cm] (a3) at (5,0) {};
+\node [circle, draw, fill=black, minimum size=.8cm] (a4) at (7.5,0) {};
+\node [circle, draw, fill=black, minimum size=.8cm] (a5) at (10,0) {};
+\node [circle, draw, fill=black, minimum size=.8cm] (a6) at (12.5,0) {};
+\node [circle, minimum size=.9cm] (a7) at (15,0) {};
+
+\draw[->] (a1) -- (a2); 
+\draw[dashed] (a2) -- (a3);
+\draw[->] (a3) -- (a4);
+\draw[->] (a4) -- (a5);
+\draw[->] (a5) -- (a6);
+\draw[dashed, ->] (a6) -- (a7);
+\end{tikzpicture}
+\begin{table}[H]
+%\centering
+\hspace{1cm}\begin{tabular}{p{0.72cm}p{0.9cm}p{0.72cm}p{0.9cm}p{0.72cm}p{0.9cm}p{0.72cm}p{0.9cm}p{0.72cm}p{0.9cm}p{0.72cm}p{0.9cm}}
+$\phi$ &  & $\psi$ &  &  &  &  &  &  &  &  &  \\
+$\tau$ &  & $\tau$ & ... &  &  &  &  &  &  &  &  \\
+ & \textbf{or} & $\tau$ & \textbf{} & $\tau$ & ... &  &  &  &  &  &  \\
+ &  &  & \textbf{or} & $\tau$ & \textbf{} & $\tau$ & ... &  &  &  & 
+\end{tabular}
+%\caption{}
+\label{tab:Q2_3}
+\end{table}
+If $\phi$ is true at $i$ and $\psi$ is true at $i+1$, then $\tau$ can become an invariant anywhere on the path.\\
+
+\item %\leavevmode\vadjust{\vspace{-\baselineskip}}\newline
+\begin{tikzpicture}[baseline=(current  bounding  box.center), thick]
+\node [circle, draw, fill=black, minimum size=.8cm] (a1) at (0,0) {};
+\node [circle, draw, fill=black, minimum size=.8cm] (a2) at (2.5,0) {};
+\node [circle, draw, fill=black, minimum size=.8cm] (a3) at (5,0) {};
+\node [circle, draw, fill=black, minimum size=.8cm] (a4) at (7.5,0) {};
+\node [circle, draw, fill=black, minimum size=.8cm] (a5) at (10,0) {};
+\node [circle, draw, fill=black, minimum size=.8cm] (a6) at (12.5,0) {};
+\node [circle, minimum size=.9cm] (a7) at (15,0) {};
+
+\draw[->] (a1) -- (a2); 
+\draw[dashed] (a2) -- (a3);
+\draw[->] (a3) -- (a4);
+\draw[->] (a4) -- (a5);
+\draw[->] (a5) -- (a6);
+\draw[dashed, ->] (a6) -- (a7);
+\end{tikzpicture}
+\begin{table}[H]
+%\centering
+\hspace{1cm}\begin{tabular}{p{0.72cm}p{0.9cm}p{0.72cm}p{0.9cm}p{0.72cm}p{0.9cm}p{0.72cm}p{0.9cm}p{0.72cm}p{0.9cm}p{0.72cm}p{0.9cm}}
+$\psi$ &  & $\chi$ &  &  &  &  &  &  &  &  &  \\
+ &  & $\tau$ &  &  &  &  &  &  &  &  &
+\end{tabular}
+%\caption{}
+\label{tab:Q2_4}
+\end{table}
+If $\psi$ is true at $i$ and $\chi$ is true at $i+1$, then $\tau$ is also true at $i+1$.\\
+
+\item 
+\begin{tikzpicture}[baseline=(current  bounding  box.center), thick]
+\node [circle, draw, fill=black, minimum size=.8cm] (a1) at (0,0) {};
+\node [circle, draw, fill=black, minimum size=.8cm] (a2) at (2.5,0) {};
+\node [circle, draw, fill=black, minimum size=.8cm] (a3) at (5,0) {};
+\node [circle, draw, fill=black, minimum size=.8cm] (a4) at (7.5,0) {};
+\node [circle, draw, fill=black, minimum size=.8cm] (a5) at (10,0) {};
+\node [circle, draw, fill=black, minimum size=.8cm] (a6) at (12.5,0) {};
+\node [circle, minimum size=.9cm] (a7) at (15,0) {};
+
+\draw[->] (a1) -- (a2); 
+\draw[->] (a2) -- (a3);
+\draw[->] (a3) -- (a4);
+\draw[dashed] (a4) -- (a5);
+\draw[->] (a5) -- (a6);
+\draw[dashed, ->] (a6) -- (a7);
+\end{tikzpicture}
+\begin{table}[H]
+%\centering
+\hspace{1cm}\begin{tabular}{p{0.72cm}p{0.9cm}p{0.72cm}p{0.9cm}p{0.72cm}p{0.9cm}p{0.72cm}p{0.9cm}p{0.72cm}p{0.9cm}p{0.72cm}p{0.9cm}}
+$\chi$ &  & $\omega$ &  & $\phi$ &  & $\phi$ &  & $\psi$ &  &  &  \\
+ &  &  &  &  &  &  &  & \texttildelow $\phi$ &  &  & 
+\end{tabular}
+%\caption{}
+\label{tab:Q2_2}
+\end{table}
+If $\chi$ is true at $i$ and $\omega$ is true at $i+1$, then from $i+2$ onwards, $\phi$ is true until $\psi$ becomes true.\\
+
 \item
 \item
 \item
