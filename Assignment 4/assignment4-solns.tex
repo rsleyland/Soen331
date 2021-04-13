@@ -471,7 +471,7 @@ $\omega$ & & $\omega$ & & $\omega$ & & $\omega$ & & $\omega$ & & $\omega$ &  \\
 %\caption{}
 \end{table}
 
-If either $\phi$ or $\psi$ is true, then  $\omega$ will always be true.\\
+If only one of the mutually exclusive events $\phi$ or $\psi$ is true, then  $\omega$ will always be true.\\
 \item
 %\leavevmode\vadjust{\vspace{-\baselineskip}}\newline
 \begin{tikzpicture}[baseline=(current  bounding  box.center), thick]
@@ -502,36 +502,9 @@ $\chi$ &  & $\chi$ &     &  &  &  &  &  &  &  &  \\
 %\caption{}
 \label{tab:Q2_7}
 \end{table}
-If $\chi$ is true at $i$ and $\chi$ \& $\psi$ is true at $i+1$, then $\omega$ can become an invariant anywhere on the path.\\
+If $\chi$ is true at $i$ and $\chi$ \& $\psi$ is true at $i+1$, then $\omega$ can emerge anywhere on the path.\\
 \newpage
 \item
-%\leavevmode\vadjust{\vspace{-\baselineskip}}\newline
-\begin{tikzpicture}[baseline=(current  bounding  box.center), thick]
-\node [circle, draw, fill=black, minimum size=.8cm] (a1) at (0,0) {};
-\node [circle, draw, fill=black, minimum size=.8cm] (a2) at (2.5,0) {};
-\node [circle, draw, fill=black, minimum size=.8cm] (a3) at (5,0) {};
-\node [circle, draw, fill=black, minimum size=.8cm] (a4) at (7.5,0) {};
-\node [circle, draw, fill=black, minimum size=.8cm] (a5) at (10,0) {};
-\node [circle, draw, fill=black, minimum size=.8cm] (a6) at (12.5,0) {};
-\node [circle, minimum size=.9cm] (a7) at (15,0) {};
-
-\draw[->] (a1) -- (a2); 
-\draw[->] (a2) -- (a3);
-\draw[dashed] (a3) -- (a4);
-\draw[->] (a4) -- (a5);
-\draw[->] (a5) -- (a6);
-\draw[dashed, ->] (a6) -- (a7);
-\end{tikzpicture}
-\begin{table}[H]
-%\centering
-\hspace{1cm}\begin{tabular}{p{0.72cm}p{0.9cm}p{0.72cm}p{0.9cm}p{0.72cm}p{0.9cm}p{0.72cm}p{0.9cm}p{0.72cm}p{0.9cm}p{0.72cm}p{0.9cm}}
-$\chi$ &  &  &  & $\psi$ &     &        &  &  &  &  &  \\
-       &  &  &  & $\tau$ & ... & $\tau$ & & $\tau$ & & $\tau$ &  \\
-\end{tabular}
-%\caption{}
-\label{tab:Q2_8}
-\end{table}
-Or...\\ \\
 %\leavevmode\vadjust{\vspace{-\baselineskip}}\newline
 \begin{tikzpicture}[baseline=(current  bounding  box.center), thick]
 \node [circle, draw, fill=black, minimum size=.8cm] (a1) at (0,0) {};
@@ -557,35 +530,9 @@ Or...\\ \\
 $\chi$ & &  & & $\psi$ & &        & &        & &  &  \\
 $\mu $ & &  & & $\tau$ & & $\tau$ & & $\tau$ & & $\omega$ &  \\
 \end{tabular}
+\label{tab:Q2_8}
 %\caption{}
 \end{table}
-Or...\\ \\
-%\leavevmode\vadjust{\vspace{-\baselineskip}}\newline
-\begin{tikzpicture}[baseline=(current  bounding  box.center), thick]
-\node [circle, draw, fill=black, minimum size=.8cm] (a1) at (0,0) {};
-\node [circle, draw, fill=black, minimum size=.8cm] (a2) at (2.5,0) {};
-\node [circle, draw, fill=black, minimum size=.8cm] (a3) at (5,0) {};
-\node [circle, draw, fill=black, minimum size=.8cm] (a4) at (7.5,0) {};
-\node [circle, draw, fill=black, minimum size=.8cm] (a5) at (10,0) {};
-\node [circle, draw, fill=black, minimum size=.8cm] (a6) at (12.5,0) {};
-\node [circle, minimum size=.9cm] (7) at (15,0) {};\
-
-\draw[->] (a1) -- (a2); 
-\draw[->] (a2) -- (a3);
-\draw[->] (a3) -- (a4);
-\draw[->] (a4) -- (a5);
-\draw[->] (a5) -- (a6);
-\draw[dashed, ->] (a6) -- (a7);
-\end{tikzpicture}
-\begin{table}[H]
-%\centering
-\hspace{1cm}\begin{tabular}{p{0.72cm}p{0.9cm}p{0.72cm}p{0.9cm}p{0.72cm}p{0.9cm}p{0.72cm}p{0.9cm}p{0.72cm}p{0.9cm}p{0.72cm}p{0.9cm}}
-       & & $\chi$ & &        & & $\psi$ & &        & &  &  \\
-$\mu $ & &        & &        & & $\tau$ & & $\tau$ & & $\omega$ &  \\
-\end{tabular}
-%\caption{}
-\end{table}
-And so on...\\
 
 If $\chi$ is true at $i$ and $\psi$ is true at $i+2$, then from $i+2$ onwards, $\tau$ is true unless $\omega$ becomes true. If $\mu$ is true at $i$, then $\omega$ will be true at $i+5$.\\
 \end{enumerate}
