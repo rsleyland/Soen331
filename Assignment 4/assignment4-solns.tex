@@ -9,7 +9,6 @@
 \usepackage{listings}
 \usepackage{amssymb,amsmath, amsthm}
 \usepackage{qtree}
-\usepackage{hyperref}
 \usepackage{oz}
 \usepackage[cc]{titlepic}
 \usepackage{fancyvrb}
@@ -19,6 +18,9 @@
 \usepackage{tikz}
 \usepackage{float}
 \usepackage{booktabs}
+\usepackage[
+    pdfborder={0 0 0},
+]{hyperref}
 %\usepackage{tabulary}
 \usetikzlibrary{matrix}
 \usetikzlibrary{fit}
@@ -330,7 +332,7 @@ $\phi$ &  & $\phi$ &  & $\phi$ & ... &  &  &  &  &  &  \\
 %\caption{}
 \label{tab:Q2_2}
 \end{table}
-If $\phi$ is an invariant, then from $i+1$ onwards, $\psi$ eventually becomes an invariant.\\
+If $\phi$ is an invariant, then from $i+1$ onwards, $\psi$ will always eventually become true.\\
 
 \item %\leavevmode\vadjust{\vspace{-\baselineskip}}\newline
 \begin{tikzpicture}[baseline=(current  bounding  box.center), thick]
